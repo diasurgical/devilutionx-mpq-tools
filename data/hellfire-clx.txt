@@ -42,3 +42,6 @@ cel2clx --width 56 data/spelicon.cel
 cel2clx --width 320 data/spellbk.cel
 cel2clx --width 61 data/spellbkb.cel
 cel2clx --width 37 data/spelli2.cel
+cel2clx --width 128 objects/l5sarco.cel
+cel2clx --width 64 objects/l5door.cel
+cel2clx --width 96 objects/l5books.cel objects/l5lever.cel objects/l5light.cel objects/l6pod1.cel objects/l6pod2.cel objects/urn.cel objects/urnexpld.cel

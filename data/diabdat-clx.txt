@@ -89,3 +89,7 @@ cel2clx --width 56 ctrlpan/spelicon.cel
 cel2clx --width 320 data/spellbk.cel
 cel2clx --width 76 data/spellbkb.cel
 cel2clx --width 37 data/spelli2.cel
+cel2clx --width 128 objects/altboy.cel objects/lshrineg.cel objects/lzstand.cel objects/nude2.cel objects/mfountn.cel objects/pfountn.cel objects/tfountn.cel objects/rshrineg.cel objects/sarc.cel objects/tnudem.cel objects/tnudew.cel objects/tsoul.cel
+cel2clx --width 160 objects/burncros.cel
+cel2clx --width 64 objects/l1braz.cel objects/l1doors.cel objects/l2doors.cel objects/l3doors.cel objects/miniwatr.cel objects/traphole.cel
+cel2clx --width 96 objects/angel.cel objects/armstand.cel objects/banner.cel objects/barrel.cel objects/barrelex.cel objects/bcase.cel objects/bkslbrnt.cel objects/bloodfnt.cel objects/book1.cel objects/book2.cel objects/bshelf.cel objects/candle2.cel objects/cauldren.cel objects/chest1.cel objects/chest2.cel objects/chest3.cel objects/cruxsk1.cel objects/cruxsk2.cel objects/cruxsk3.cel objects/decap.cel objects/flame1.cel objects/goatshrn.cel objects/lever.cel objects/mcirl.cel objects/mushptch.cel objects/pedistl.cel objects/prsrplt1.cel objects/rockstan.cel objects/skulfire.cel objects/skulpile.cel objects/skulstik.cel objects/switch4.cel objects/weapstnd.cel objects/wtorch1.cel objects/wtorch2.cel objects/wtorch3.cel objects/wtorch4.cel
