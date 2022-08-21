@@ -1,0 +1,25 @@
+cl22clx --width 104 monsters/rat/rata.cl2 monsters/rat/ratd.cl2 monsters/rat/rath.cl2 monsters/rat/ratn.cl2 monsters/rat/ratw.cl2
+cl22clx --width 124 monsters/gravdg/gravdga.cl2 monsters/gravdg/gravdgd.cl2 monsters/gravdg/gravdgh.cl2 monsters/gravdg/gravdgn.cl2 monsters/gravdg/gravdgs.cl2 monsters/gravdg/gravdgw.cl2
+cl22clx --width 136 monsters/lich2/lich2a.cl2 monsters/lich2/lich2d.cl2 monsters/lich2/lich2h.cl2 monsters/lich2/lich2n.cl2 monsters/lich2/lich2w.cl2
+cl22clx --width 138 monsters/horkd/horkda.cl2 monsters/horkd/horkdd.cl2 monsters/horkd/horkdh.cl2 monsters/horkd/horkdn.cl2 monsters/horkd/horkds.cl2 monsters/horkd/horkdw.cl2
+cl22clx --width 140 monsters/eye2/eye2a.cl2 monsters/eye2/eye2d.cl2 monsters/eye2/eye2h.cl2 monsters/eye2/eye2n.cl2 monsters/eye2/eye2w.cl2
+cl22clx --width 148 monsters/bspidr/bspidra.cl2 monsters/bspidr/bspidrd.cl2 monsters/bspidr/bspidrh.cl2 monsters/bspidr/bspidrn.cl2 monsters/bspidr/bspidrs.cl2 monsters/bspidr/bspidrw.cl2
+cl22clx --width 148 monsters/spider/spidera.cl2 monsters/spider/spiderd.cl2 monsters/spider/spiderh.cl2 monsters/spider/spidern.cl2 monsters/spider/spiderw.cl2
+cl22clx --width 154 monsters/bubba/bubbaa.cl2 monsters/bubba/bubbad.cl2 monsters/bubba/bubbah.cl2 monsters/bubba/bubban.cl2 monsters/bubba/bubbaw.cl2
+cl22clx --width 156 monsters/eye/eyea.cl2 monsters/eye/eyed.cl2 monsters/eye/eyeh.cl2 monsters/eye/eyen.cl2 monsters/eye/eyew.cl2
+cl22clx --width 160 monsters/goatlord/goatld.cl2
+cl22clx --width 164 monsters/flesh/flesha.cl2 monsters/flesh/fleshd.cl2 monsters/flesh/fleshh.cl2 monsters/flesh/fleshn.cl2 monsters/flesh/fleshw.cl2
+cl22clx --width 164 monsters/spawn/spawna.cl2 monsters/spawn/spawnd.cl2 monsters/spawn/spawnh.cl2 monsters/spawn/spawnn.cl2 monsters/spawn/spawnw.cl2
+cl22clx --width 176 monsters/clasp/claspa.cl2 monsters/clasp/claspd.cl2 monsters/clasp/clasph.cl2 monsters/clasp/claspn.cl2 monsters/clasp/claspw.cl2
+cl22clx --width 180 monsters/byclps/byclpsa.cl2 monsters/byclps/byclpsd.cl2 monsters/byclps/byclpsh.cl2 monsters/byclps/byclpsn.cl2 monsters/byclps/byclpsw.cl2
+cl22clx --width 180 monsters/reaper/reapa.cl2 monsters/reaper/reapd.cl2 monsters/reaper/reaph.cl2 monsters/reaper/reapn.cl2 monsters/reaper/reapw.cl2
+cl22clx --width 188 monsters/fork/forka.cl2 monsters/fork/forkd.cl2 monsters/fork/forkh.cl2 monsters/fork/forkn.cl2 monsters/fork/forkw.cl2
+cl22clx --width 192 monsters/antworm/worma.cl2 monsters/antworm/wormd.cl2 monsters/antworm/wormh.cl2 monsters/antworm/wormn.cl2 monsters/antworm/wormw.cl2
+cl22clx --width 198 monsters/hellbug/hellbga.cl2 monsters/hellbug/hellbgd.cl2 monsters/hellbug/hellbgh.cl2 monsters/hellbug/hellbgn.cl2 monsters/hellbug/hellbgs.cl2 monsters/hellbug/hellbgw.cl2
+cl22clx --width 226 monsters/nkr/nkra.cl2 monsters/nkr/nkrd.cl2 monsters/nkr/nkrh.cl2 monsters/nkr/nkrn.cl2 monsters/nkr/nkrs.cl2 monsters/nkr/nkrw.cl2
+cl22clx --width 64 monsters/scorp/scorpa.cl2 monsters/scorp/scorpd.cl2 monsters/scorp/scorph.cl2 monsters/scorp/scorpn.cl2 monsters/scorp/scorpw.cl2
+cl22clx --width 86 monsters/wscorp/wscorpa.cl2 monsters/wscorp/wscorpd.cl2 monsters/wscorp/wscorph.cl2 monsters/wscorp/wscorpn.cl2 monsters/wscorp/wscorpw.cl2
+cl22clx --width 96 monsters/hellbat/helbata.cl2 monsters/hellbat/helbatd.cl2 monsters/hellbat/helbath.cl2 monsters/hellbat/helbatn.cl2 monsters/hellbat/helbats.cl2 monsters/hellbat/helbatw.cl2
+cl22clx --width 96 monsters/hellbat2/bhelbta.cl2 monsters/hellbat2/bhelbtd.cl2 monsters/hellbat2/bhelbth.cl2 monsters/hellbat2/bhelbtn.cl2 monsters/hellbat2/bhelbts.cl2 monsters/hellbat2/bhelbtw.cl2
+cl22clx --width 96 monsters/lich/licha.cl2 monsters/lich/lichd.cl2 monsters/lich/lichh.cl2 monsters/lich/lichn.cl2 monsters/lich/lichw.cl2
+cl22clx --width 96 monsters/unrav/unrava.cl2 monsters/unrav/unravw.cl2

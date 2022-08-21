@@ -1,0 +1,33 @@
+cl22clx --width 128 monsters/acid/acida.cl2 monsters/acid/acidd.cl2 monsters/acid/acidh.cl2 monsters/acid/acidn.cl2 monsters/acid/acids.cl2 monsters/acid/acidw.cl2
+cl22clx --width 128 monsters/bigfall/fallga.cl2 monsters/bigfall/fallgd.cl2 monsters/bigfall/fallgh.cl2 monsters/bigfall/fallgn.cl2 monsters/bigfall/fallgw.cl2
+cl22clx --width 128 monsters/darkmage/dmagea.cl2 monsters/darkmage/dmaged.cl2 monsters/darkmage/dmageh.cl2 monsters/darkmage/dmagen.cl2 monsters/darkmage/dmages.cl2
+cl22clx --width 128 monsters/demskel/demskla.cl2 monsters/demskel/demskld.cl2 monsters/demskel/demsklh.cl2 monsters/demskel/demskln.cl2 monsters/demskel/demskls.cl2 monsters/demskel/demsklw.cl2
+cl22clx --width 128 monsters/falspear/phalla.cl2 monsters/falspear/phalld.cl2 monsters/falspear/phallh.cl2 monsters/falspear/phalln.cl2 monsters/falspear/phalls.cl2 monsters/falspear/phallw.cl2
+cl22clx --width 128 monsters/falsword/falla.cl2 monsters/falsword/falld.cl2 monsters/falsword/fallh.cl2 monsters/falsword/falln.cl2 monsters/falsword/falls.cl2 monsters/falsword/fallw.cl2
+cl22clx --width 128 monsters/fat/fata.cl2 monsters/fat/fatd.cl2 monsters/fat/fath.cl2 monsters/fat/fatn.cl2 monsters/fat/fats.cl2 monsters/fat/fatw.cl2
+cl22clx --width 128 monsters/fatc/fatca.cl2 monsters/fatc/fatcd.cl2 monsters/fatc/fatch.cl2 monsters/fatc/fatcn.cl2 monsters/fatc/fatcw.cl2
+cl22clx --width 128 monsters/fireman/firema.cl2 monsters/fireman/firemd.cl2 monsters/fireman/firemh.cl2 monsters/fireman/firemn.cl2 monsters/fireman/firems.cl2 monsters/fireman/firemw.cl2
+cl22clx --width 128 monsters/goatbow/goatba.cl2 monsters/goatbow/goatbd.cl2 monsters/goatbow/goatbh.cl2 monsters/goatbow/goatbn.cl2 monsters/goatbow/goatbw.cl2
+cl22clx --width 128 monsters/goatmace/goata.cl2 monsters/goatmace/goatd.cl2 monsters/goatmace/goath.cl2 monsters/goatmace/goatn.cl2 monsters/goatmace/goats.cl2 monsters/goatmace/goatw.cl2
+cl22clx --width 128 monsters/mage/magea.cl2 monsters/mage/maged.cl2 monsters/mage/mageh.cl2 monsters/mage/magen.cl2 monsters/mage/mages.cl2 monsters/mage/magew.cl2
+cl22clx --width 128 monsters/magma/magmaa.cl2 monsters/magma/magmad.cl2 monsters/magma/magmah.cl2 monsters/magma/magman.cl2 monsters/magma/magmas.cl2 monsters/magma/magmaw.cl2
+cl22clx --width 128 monsters/scav/scava.cl2 monsters/scav/scavd.cl2 monsters/scav/scavh.cl2 monsters/scav/scavn.cl2 monsters/scav/scavs.cl2 monsters/scav/scavw.cl2
+cl22clx --width 128 monsters/skelaxe/sklaxa.cl2 monsters/skelaxe/sklaxd.cl2 monsters/skelaxe/sklaxh.cl2 monsters/skelaxe/sklaxn.cl2 monsters/skelaxe/sklaxs.cl2 monsters/skelaxe/sklaxw.cl2
+cl22clx --width 128 monsters/skelbow/sklbwa.cl2 monsters/skelbow/sklbwd.cl2 monsters/skelbow/sklbwh.cl2 monsters/skelbow/sklbwn.cl2 monsters/skelbow/sklbws.cl2 monsters/skelbow/sklbww.cl2
+cl22clx --width 128 monsters/skelsd/sklsra.cl2 monsters/skelsd/sklsrd.cl2 monsters/skelsd/sklsrh.cl2 monsters/skelsd/sklsrn.cl2 monsters/skelsd/sklsrs.cl2 monsters/skelsd/sklsrw.cl2
+cl22clx --width 128 monsters/sneak/sneaka.cl2 monsters/sneak/sneakd.cl2 monsters/sneak/sneakh.cl2 monsters/sneak/sneakn.cl2 monsters/sneak/sneaks.cl2 monsters/sneak/sneakw.cl2
+cl22clx --width 128 monsters/succ/scbsa.cl2 monsters/succ/scbsd.cl2 monsters/succ/scbsh.cl2 monsters/succ/scbsn.cl2 monsters/succ/scbsw.cl2
+cl22clx --width 128 monsters/tsneak/tsneaka.cl2 monsters/tsneak/tsneakd.cl2 monsters/tsneak/tsneakh.cl2 monsters/tsneak/tsneakn.cl2 monsters/tsneak/tsneakw.cl2
+cl22clx --width 128 monsters/zombie/zombiea.cl2 monsters/zombie/zombied.cl2 monsters/zombie/zombieh.cl2 monsters/zombie/zombien.cl2 monsters/zombie/zombies.cl2 monsters/zombie/zombiew.cl2
+cl22clx --width 160 monsters/black/blacka.cl2 monsters/black/blackd.cl2 monsters/black/blackh.cl2 monsters/black/blackn.cl2 monsters/black/blackw.cl2
+cl22clx --width 160 monsters/diablo/diabloa.cl2 monsters/diablo/diablod.cl2 monsters/diablo/diabloh.cl2 monsters/diablo/diablon.cl2 monsters/diablo/diablos.cl2 monsters/diablo/diablow.cl2
+cl22clx --width 160 monsters/gargoyle/gargoa.cl2 monsters/gargoyle/gargod.cl2 monsters/gargoyle/gargoh.cl2 monsters/gargoyle/gargon.cl2 monsters/gargoyle/gargos.cl2 monsters/gargoyle/gargow.cl2
+cl22clx --width 160 monsters/goatlord/goatla.cl2 monsters/goatlord/goatld.cl2 monsters/goatlord/goatlh.cl2 monsters/goatlord/goatln.cl2 monsters/goatlord/goatlw.cl2
+cl22clx --width 160 monsters/mega/megaa.cl2 monsters/mega/megad.cl2 monsters/mega/megah.cl2 monsters/mega/megan.cl2 monsters/mega/megas.cl2 monsters/mega/megaw.cl2
+cl22clx --width 160 monsters/rhino/rhinoa.cl2 monsters/rhino/rhinod.cl2 monsters/rhino/rhinoh.cl2 monsters/rhino/rhinon.cl2 monsters/rhino/rhinos.cl2 monsters/rhino/rhinow.cl2
+cl22clx --width 160 monsters/sking/skinga.cl2 monsters/sking/skingd.cl2 monsters/sking/skingh.cl2 monsters/sking/skingn.cl2 monsters/sking/skings.cl2 monsters/sking/skingw.cl2
+cl22clx --width 160 monsters/snake/snakea.cl2 monsters/snake/snaked.cl2 monsters/snake/snakeh.cl2 monsters/snake/snaken.cl2 monsters/snake/snakes.cl2 monsters/snake/snakew.cl2
+cl22clx --width 160 monsters/thin/thina.cl2 monsters/thin/thind.cl2 monsters/thin/thinh.cl2 monsters/thin/thinn.cl2 monsters/thin/thins.cl2 monsters/thin/thinw.cl2
+cl22clx --width 96 monsters/bat/bata.cl2 monsters/bat/batd.cl2 monsters/bat/bath.cl2 monsters/bat/batn.cl2 monsters/bat/batw.cl2
+cl22clx --width 96 monsters/golem/golema.cl2 monsters/golem/golemd.cl2 monsters/golem/golems.cl2 monsters/golem/golemw.cl2
+cl22clx --width 96 monsters/unrav/unrava.cl2 monsters/unrav/unravd.cl2 monsters/unrav/unravh.cl2 monsters/unrav/unravn.cl2 monsters/unrav/unravs.cl2

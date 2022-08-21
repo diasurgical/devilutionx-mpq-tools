@@ -1,0 +1,1 @@
+monsters/darkmage/dmagew.cl2
