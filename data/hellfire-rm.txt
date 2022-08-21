@@ -1,3 +1,4 @@
+items/rglows1.cel
 missiles/fba_n10.cl2
 missiles/fba_n11.cl2
 missiles/fba_n12.cl2
