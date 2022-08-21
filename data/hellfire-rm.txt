@@ -89,6 +89,9 @@ monsters/spider/debug.txt
 monsters/wscorp/debug.txt
 nlevels/l6data/l6base.pal
 nlevels/l6data/nest.col
+sfx/hellfire/naratr1.wav
+sfx/hellfire/naratr2.wav
+sfx/misc/newbfire.wav
 towners/farmer/farmer.txt
 towners/girl/debug.txt
 towners/trader/tradern.cel
