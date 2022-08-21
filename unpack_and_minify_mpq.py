@@ -68,10 +68,12 @@ def convert(mpq_path: str, listfile_path: str, output_dir: str):
     mpq_abs_path = os.path.abspath(mpq_path)
     mpq_name = get_mpq_name(mpq_path)
     os.makedirs(output_dir, exist_ok=True)
+    cwd = os.getcwd()
     os.chdir(output_dir)
     unpack(listfile_path, mpq_abs_path)
     convert_to_clx(mpq_name)
     remove_unused(mpq_name)
+    os.chdir(cwd)
 
 
 def main():
