@@ -33,3 +33,40 @@ cl22clx --width 96 monsters/golem/golema.cl2 monsters/golem/golemd.cl2 monsters/
 cl22clx --width 96 monsters/unrav/unrava.cl2 monsters/unrav/unravd.cl2 monsters/unrav/unravh.cl2 monsters/unrav/unravn.cl2 monsters/unrav/unravs.cl2
 cel2clx --width 128 towners/animals/cow.cel
 cel2clx --width 96 towners/smith/smithn.cel towners/twnf/twnfn.cel towners/butch/deadguy.cel towners/townwmn1/witch.cel towners/townwmn1/wmnn.cel towners/townboy/pegkid1.cel towners/healer/healer.cel towners/strytell/strytell.cel towners/drunk/twndrunk.cel
+cl22clx --width 96 missiles/arrows.cl2
+cl22clx --width 96 missiles/fireba1.cl2 missiles/fireba2.cl2 missiles/fireba3.cl2 missiles/fireba4.cl2 missiles/fireba5.cl2 missiles/fireba6.cl2 missiles/fireba7.cl2 missiles/fireba8.cl2 missiles/fireba9.cl2 missiles/fireba10.cl2 missiles/fireba11.cl2 missiles/fireba12.cl2 missiles/fireba13.cl2 missiles/fireba14.cl2 missiles/fireba15.cl2 missiles/fireba16.cl2
+cl22clx --width 96 missiles/guard1.cl2 missiles/guard2.cl2 missiles/guard3.cl2
+cl22clx --width 96 missiles/lghning.cl2
+cl22clx --width 128 missiles/firewal1.cl2 missiles/firewal2.cl2
+cl22clx --width 128 missiles/magblos.cl2
+cl22clx --width 96 missiles/portal1.cl2 missiles/portal2.cl2
+cl22clx --width 160 missiles/bluexfr.cl2
+cl22clx --width 160 missiles/bluexbk.cl2
+cl22clx --width 96 missiles/manashld.cl2
+cl22clx --width 96 missiles/farrow1.cl2 missiles/farrow2.cl2 missiles/farrow3.cl2 missiles/farrow4.cl2 missiles/farrow5.cl2 missiles/farrow6.cl2 missiles/farrow7.cl2 missiles/farrow8.cl2 missiles/farrow9.cl2 missiles/farrow10.cl2 missiles/farrow11.cl2 missiles/farrow12.cl2 missiles/farrow13.cl2 missiles/farrow14.cl2 missiles/farrow15.cl2 missiles/farrow16.cl2
+cl22clx --width 96 missiles/newexp.cl2
+cl22clx --width 128 missiles/shatter1.cl2
+cl22clx --width 160 missiles/bigexp.cl2
+cl22clx --width 96 missiles/inferno.cl2
+cl22clx --width 96 missiles/thinlght.cl2
+cl22clx --width 128 missiles/flare.cl2
+cl22clx --width 128 missiles/flareexp.cl2
+cl22clx --width 128 missiles/magball1.cl2 missiles/magball2.cl2 missiles/magball3.cl2 missiles/magball4.cl2 missiles/magball5.cl2 missiles/magball6.cl2 missiles/magball7.cl2 missiles/magball8.cl2
+cl22clx --width 64 missiles/miniltng.cl2
+cl22clx --width 96 missiles/holy1.cl2 missiles/holy2.cl2 missiles/holy3.cl2 missiles/holy4.cl2 missiles/holy5.cl2 missiles/holy6.cl2 missiles/holy7.cl2 missiles/holy8.cl2 missiles/holy9.cl2 missiles/holy10.cl2 missiles/holy11.cl2 missiles/holy12.cl2 missiles/holy13.cl2 missiles/holy14.cl2 missiles/holy15.cl2 missiles/holy16.cl2
+cl22clx --width 160 missiles/holyexpl.cl2
+cl22clx --width 96 missiles/larrow1.cl2 missiles/larrow2.cl2 missiles/larrow3.cl2 missiles/larrow4.cl2 missiles/larrow5.cl2 missiles/larrow6.cl2 missiles/larrow7.cl2 missiles/larrow8.cl2 missiles/larrow9.cl2 missiles/larrow10.cl2 missiles/larrow11.cl2 missiles/larrow12.cl2 missiles/larrow13.cl2 missiles/larrow14.cl2 missiles/larrow15.cl2 missiles/larrow16.cl2
+cl22clx --width 96 missiles/acidbf1.cl2 missiles/acidbf2.cl2 missiles/acidbf3.cl2 missiles/acidbf4.cl2 missiles/acidbf5.cl2 missiles/acidbf6.cl2 missiles/acidbf7.cl2 missiles/acidbf8.cl2 missiles/acidbf9.cl2 missiles/acidbf10.cl2 missiles/acidbf11.cl2 missiles/acidbf12.cl2 missiles/acidbf13.cl2 missiles/acidbf14.cl2 missiles/acidbf15.cl2 missiles/acidbf16.cl2
+cl22clx --width 96 missiles/acidspla.cl2
+cl22clx --width 96 missiles/acidpud1.cl2 missiles/acidpud2.cl2
+cl22clx --width 96 missiles/firerun1.cl2 missiles/firerun2.cl2 missiles/firerun3.cl2 missiles/firerun4.cl2 missiles/firerun5.cl2 missiles/firerun6.cl2 missiles/firerun7.cl2 missiles/firerun8.cl2
+cl22clx --width 96 missiles/ressur1.cl2
+cl22clx --width 96 missiles/sklball1.cl2 missiles/sklball2.cl2 missiles/sklball3.cl2 missiles/sklball4.cl2 missiles/sklball5.cl2 missiles/sklball6.cl2 missiles/sklball7.cl2 missiles/sklball8.cl2 missiles/sklball9.cl2
+cl22clx --width 96 missiles/rportal1.cl2 missiles/rportal2.cl2
+cl22clx --width 160 missiles/fireplar.cl2
+cl22clx --width 96 missiles/scubmisb.cl2
+cl22clx --width 128 missiles/scbsexpb.cl2
+cl22clx --width 96 missiles/scubmisc.cl2
+cl22clx --width 128 missiles/scbsexpc.cl2
+cl22clx --width 96 missiles/scubmisd.cl2
+cl22clx --width 128 missiles/scbsexpd.cl2
