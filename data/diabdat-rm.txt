@@ -1,1 +1,11 @@
+ctrlpan/smaltext.cel
+d1221a.mpq
+data/bigtgold.cel
+data/char.cel
+data/medtexts.cel
+gendata/doom.smk
+gendata/fbutch3.smk
+gendata/quotes.cel
+gendata/quotes.pal
 monsters/darkmage/dmagew.cl2
+spawn.mpq
