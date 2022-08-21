@@ -192,6 +192,10 @@ monsters/worm/worms2.wav
 monsters/zombie/zombies1.wav
 monsters/zombie/zombies2.wav
 spawn.mpq
+towners/priest/priest8.cel
+towners/smith/smithw.cel
+towners/townwmn1/wmnw.cel
+towners/twnf/twnfw.cel
 ui_art/badconn.pcx
 ui_art/black.pcx
 ui_art/bn_bkg.pcx
