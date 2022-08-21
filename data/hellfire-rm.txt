@@ -1,2 +1,8 @@
 towners/trader/tradern.cel
 towners/trader/traderw.cel
+ui_art/hf_title.pcx
+ui_art/font42g.pcx
+ui_art/black.pcx
+ui_art/selconn.pcx
+ui_art/selgame.pcx
+ui_art/selhero.pcx
