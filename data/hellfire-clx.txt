@@ -23,3 +23,4 @@ cl22clx --width 96 monsters/hellbat/helbata.cl2 monsters/hellbat/helbatd.cl2 mon
 cl22clx --width 96 monsters/hellbat2/bhelbta.cl2 monsters/hellbat2/bhelbtd.cl2 monsters/hellbat2/bhelbth.cl2 monsters/hellbat2/bhelbtn.cl2 monsters/hellbat2/bhelbts.cl2 monsters/hellbat2/bhelbtw.cl2
 cl22clx --width 96 monsters/lich/licha.cl2 monsters/lich/lichd.cl2 monsters/lich/lichh.cl2 monsters/lich/lichn.cl2 monsters/lich/lichw.cl2
 cl22clx --width 96 monsters/unrav/unrava.cl2 monsters/unrav/unravw.cl2
+cel2clx --width 96 towners/farmer/farmrn2.cel towners/farmer/cfrmrn2.cel towners/farmer/mfrmrn2.cel towners/girl/girls1.cel towners/girl/girlw1.cel

@@ -31,3 +31,5 @@ cl22clx --width 160 monsters/thin/thina.cl2 monsters/thin/thind.cl2 monsters/thi
 cl22clx --width 96 monsters/bat/bata.cl2 monsters/bat/batd.cl2 monsters/bat/bath.cl2 monsters/bat/batn.cl2 monsters/bat/batw.cl2
 cl22clx --width 96 monsters/golem/golema.cl2 monsters/golem/golemd.cl2 monsters/golem/golems.cl2 monsters/golem/golemw.cl2
 cl22clx --width 96 monsters/unrav/unrava.cl2 monsters/unrav/unravd.cl2 monsters/unrav/unravh.cl2 monsters/unrav/unravn.cl2 monsters/unrav/unravs.cl2
+cel2clx --width 128 towners/animals/cow.cel
+cel2clx --width 96 towners/smith/smithn.cel towners/twnf/twnfn.cel towners/butch/deadguy.cel towners/townwmn1/witch.cel towners/townwmn1/wmnn.cel towners/townboy/pegkid1.cel towners/healer/healer.cel towners/strytell/strytell.cel towners/drunk/twndrunk.cel
