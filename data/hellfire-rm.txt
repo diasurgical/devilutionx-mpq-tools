@@ -89,6 +89,8 @@ monsters/spider/debug.txt
 monsters/wscorp/debug.txt
 nlevels/l6data/l6base.pal
 nlevels/l6data/nest.col
+towners/farmer/farmer.txt
+towners/girl/debug.txt
 towners/trader/tradern.cel
 towners/trader/traderw.cel
 ui_art/black.pcx
