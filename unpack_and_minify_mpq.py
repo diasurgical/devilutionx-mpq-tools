@@ -8,9 +8,12 @@ Unpacks an MPQ and minifies its assets.
 Dependencies:
 - smpq
 - pcx2clx cel2clx cl22clx https://github.com/diasurgical/devilutionx-graphics-tools
+- lame if converting audio to mp3 (optional)
 """
 
 import argparse
+from concurrent import futures
+import glob
 import logging
 import os
 import sys
@@ -63,7 +66,24 @@ def remove_unused(mpq_name: str):
             os.remove(line.removesuffix('\n'))
 
 
-def convert(mpq_path: str, listfile_path: str, output_dir: str):
+def convert_wav_to_mp3(path: str):
+    run('lame', '--replaygain-accurate', '--quiet', '-q',
+        '0', path, f'{os.path.splitext(path)[0]}.mp3')
+    os.remove(path)
+
+
+def convert_to_mp3():
+    files = glob.glob('**/*.wav', recursive=True)
+    try:
+        with futures.ThreadPoolExecutor(max_workers=os.cpu_count()) as executor:
+            executor.map(convert_wav_to_mp3, files,
+                         chunksize=len(files) / os.cpu_count())
+    except BaseException as e:
+        logging.error(str(e))
+        exit(1)
+
+
+def convert(mpq_path: str, listfile_path: str, output_dir: str, mp3: bool):
     _LOGGER.info(f"Extracting {mpq_path} to {output_dir}")
     mpq_abs_path = os.path.abspath(mpq_path)
     mpq_name = get_mpq_name(mpq_path)
@@ -73,6 +93,8 @@ def convert(mpq_path: str, listfile_path: str, output_dir: str):
     unpack(listfile_path, mpq_abs_path)
     convert_to_clx(mpq_name)
     remove_unused(mpq_name)
+    if mp3:
+        convert_to_mp3()
     os.chdir(cwd)
 
 
@@ -80,6 +102,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output-dir')
     parser.add_argument('--listfile')
+    parser.add_argument('--mp3', default=False, action='store_true')
     parser.add_argument('mpq', nargs='+')
     args = parser.parse_args()
     for mpq_path in args.mpq:
@@ -92,7 +115,7 @@ def main():
             listfile = args.listfile
         else:
             listfile = get_builtin_listfile_path(mpq_name)
-        convert(mpq_path, listfile, output_dir)
+        convert(mpq_path, listfile, output_dir, args.mp3)
 
 
 main()

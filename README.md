@@ -9,3 +9,4 @@ All graphics assets are converted to CLX.
 Dependencies:
 - smpq
 - pcx2clx cel2clx cl22clx https://github.com/diasurgical/devilutionx-graphics-tools
+- lame if converting audio to mp3 (optional)
