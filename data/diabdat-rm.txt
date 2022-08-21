@@ -285,8 +285,8 @@ sfx/animals/warior53.wav
 sfx/items/barfire.wav
 sfx/items/bfire.wav
 sfx/items/flip1.wav
-sfx/items/flip.wav
 sfx/items/flipsarc.wav
+sfx/items/flip.wav
 sfx/items/gold1.wav
 sfx/items/sarca.wav
 sfx/items/sarcb.wav
