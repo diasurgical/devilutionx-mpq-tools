@@ -404,6 +404,7 @@ ui_art/hpopup.pcx
 ui_art/ipx_bkg.pcx
 ui_art/listbox.pcx
 ui_art/list_gry.pcx
+ui_art/menu.pcx
 ui_art/mmpopup.pcx
 ui_art/r1_gry.pcx
 ui_art/r3_gry.pcx
