@@ -38,3 +38,7 @@ cl22clx --width 96 missiles/ms_blb1.cl2 missiles/ms_blb2.cl2 missiles/ms_blb3.cl
 cl22clx --width 96 missiles/ex_ora1.cl2
 cl22clx --width 292 missiles/ex_blu3.cl2
 cel2clx --width 28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,56,56,28,28,28,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56 data/inv/objcurs2.cel
+cel2clx --width 56 data/spelicon.cel
+cel2clx --width 320 data/spellbk.cel
+cel2clx --width 61 data/spellbkb.cel
+cel2clx --width 37 data/spelli2.cel
