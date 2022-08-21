@@ -14,8 +14,8 @@ monsters/hellbug/hellbug.txt
 monsters/horkd/debug.txt
 monsters/lich2/debug.txt
 monsters/lich/debug.txt
-monsters/newsfx/eject1.mp3
-monsters/newsfx/ribsplt1.mp3
+monsters/newsfx/eject1.wav
+monsters/newsfx/ribsplt1.wav
 monsters/nkr/nakrule.txt
 monsters/rat/debug.txt
 monsters/reaper/reaper.txt
