@@ -28,6 +28,12 @@ def get_mpq_name(mpq_path: str) -> str:
     return os.path.splitext(os.path.basename(mpq_path))[0].lower()
 
 
+def get_dest_name(mpq_name: str) -> str:
+    if mpq_name == 'hfmonk' or mpq_name == 'hfmusic' or mpq_name == 'hfvoice':
+        return 'hellfire'
+    return mpq_name
+
+
 def get_builtin_listfile_path(mpq_name: str) -> str:
     return os.path.normpath(os.path.join(os.path.dirname(__file__), 'data', f'{mpq_name}-listfile.txt'))
 
@@ -49,21 +55,22 @@ def run(*args):
 
 
 def unpack(listfile_path: str, mpq_abs_path: str):
-    run('smpq', '--listfile', listfile_path, '--extract', mpq_abs_path)
+    with open(listfile_path) as f:
+        files = f.read().splitlines()
+    with open(get_files_to_remove_path(get_mpq_name(mpq_abs_path))) as f:
+        to_remove = f.read().replace('/', '\\').splitlines()
+    files = sorted(list(set(files) - set(to_remove)))
+    run('smpq', '--extract', mpq_abs_path, *files)
 
 
 def convert_to_clx(mpq_name: str):
     with open(get_clx_commands_path(mpq_name)) as f:
         for line in f:
+            if line.startswith('#'):
+                continue
             args = line.split()
             args.insert(1, '--remove')
             run(*args)
-
-
-def remove_unused(mpq_name: str):
-    with open(get_files_to_remove_path(mpq_name)) as f:
-        for line in f:
-            os.remove(line.removesuffix('\n'))
 
 
 def convert_wav_to_mp3(path: str):
@@ -92,7 +99,6 @@ def convert(mpq_path: str, listfile_path: str, output_dir: str, mp3: bool):
     os.chdir(output_dir)
     unpack(listfile_path, mpq_abs_path)
     convert_to_clx(mpq_name)
-    remove_unused(mpq_name)
     if mp3:
         convert_to_mp3()
     os.chdir(cwd)
@@ -110,7 +116,7 @@ def main():
         if args.output_dir:
             output_dir = args.output_dir
         else:
-            output_dir = os.path.join(os.getcwd(), 'output', mpq_name)
+            output_dir = os.path.join(os.getcwd(), 'output', get_dest_name(mpq_name))
         if args.listfile:
             listfile = args.listfile
         else:

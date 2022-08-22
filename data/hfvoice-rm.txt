@@ -1,0 +1,2 @@
+sfx/hellfire/naratr1.wav
+sfx/hellfire/naratr2.wav

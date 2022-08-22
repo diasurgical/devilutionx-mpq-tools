@@ -5,7 +5,7 @@ cl22clx --width 128 monsters/falspear/phalla.cl2 monsters/falspear/phalld.cl2 mo
 cl22clx --width 128 monsters/falsword/falla.cl2 monsters/falsword/falld.cl2 monsters/falsword/fallh.cl2 monsters/falsword/falln.cl2 monsters/falsword/falls.cl2 monsters/falsword/fallw.cl2
 cl22clx --width 128 monsters/fat/fata.cl2 monsters/fat/fatd.cl2 monsters/fat/fath.cl2 monsters/fat/fatn.cl2 monsters/fat/fats.cl2 monsters/fat/fatw.cl2
 cl22clx --width 128 monsters/fatc/fatca.cl2 monsters/fatc/fatcd.cl2 monsters/fatc/fatch.cl2 monsters/fatc/fatcn.cl2 monsters/fatc/fatcw.cl2
-cl22clx --width 128 monsters/fireman/firema.cl2 monsters/fireman/firemd.cl2 monsters/fireman/firemh.cl2 monsters/fireman/firemn.cl2 monsters/fireman/firems.cl2 monsters/fireman/firemw.cl2
+# cl22clx --width 128 monsters/fireman/firema.cl2 monsters/fireman/firemd.cl2 monsters/fireman/firemh.cl2 monsters/fireman/firemn.cl2 monsters/fireman/firems.cl2 monsters/fireman/firemw.cl2
 cl22clx --width 128 monsters/goatbow/goatba.cl2 monsters/goatbow/goatbd.cl2 monsters/goatbow/goatbh.cl2 monsters/goatbow/goatbn.cl2 monsters/goatbow/goatbw.cl2
 cl22clx --width 128 monsters/goatmace/goata.cl2 monsters/goatmace/goatd.cl2 monsters/goatmace/goath.cl2 monsters/goatmace/goatn.cl2 monsters/goatmace/goats.cl2 monsters/goatmace/goatw.cl2
 cl22clx --width 128 monsters/mage/magea.cl2 monsters/mage/maged.cl2 monsters/mage/mageh.cl2 monsters/mage/magen.cl2 monsters/mage/mages.cl2 monsters/mage/magew.cl2
@@ -21,7 +21,8 @@ cl22clx --width 128 monsters/zombie/zombiea.cl2 monsters/zombie/zombied.cl2 mons
 cl22clx --width 160 monsters/black/blacka.cl2 monsters/black/blackd.cl2 monsters/black/blackh.cl2 monsters/black/blackn.cl2 monsters/black/blackw.cl2
 cl22clx --width 160 monsters/diablo/diabloa.cl2 monsters/diablo/diablod.cl2 monsters/diablo/diabloh.cl2 monsters/diablo/diablon.cl2 monsters/diablo/diablos.cl2 monsters/diablo/diablow.cl2
 cl22clx --width 160 monsters/gargoyle/gargoa.cl2 monsters/gargoyle/gargod.cl2 monsters/gargoyle/gargoh.cl2 monsters/gargoyle/gargon.cl2 monsters/gargoyle/gargos.cl2 monsters/gargoyle/gargow.cl2
-cl22clx --width 160 monsters/goatlord/goatla.cl2 monsters/goatlord/goatld.cl2 monsters/goatlord/goatlh.cl2 monsters/goatlord/goatln.cl2 monsters/goatlord/goatlw.cl2
+cl22clx --width 160 monsters/goatlord/goatla.cl2 monsters/goatlord/goatlh.cl2 monsters/goatlord/goatln.cl2 monsters/goatlord/goatlw.cl2
+# cl22clx --width 160 monsters/goatlord/goatld.cl2
 cl22clx --width 160 monsters/mega/megaa.cl2 monsters/mega/megad.cl2 monsters/mega/megah.cl2 monsters/mega/megan.cl2 monsters/mega/megas.cl2 monsters/mega/megaw.cl2
 cl22clx --width 160 monsters/rhino/rhinoa.cl2 monsters/rhino/rhinod.cl2 monsters/rhino/rhinoh.cl2 monsters/rhino/rhinon.cl2 monsters/rhino/rhinos.cl2 monsters/rhino/rhinow.cl2
 cl22clx --width 160 monsters/sking/skinga.cl2 monsters/sking/skingd.cl2 monsters/sking/skingh.cl2 monsters/sking/skingn.cl2 monsters/sking/skings.cl2 monsters/sking/skingw.cl2
@@ -29,7 +30,8 @@ cl22clx --width 160 monsters/snake/snakea.cl2 monsters/snake/snaked.cl2 monsters
 cl22clx --width 160 monsters/thin/thina.cl2 monsters/thin/thind.cl2 monsters/thin/thinh.cl2 monsters/thin/thinn.cl2 monsters/thin/thins.cl2 monsters/thin/thinw.cl2
 cl22clx --width 96 monsters/bat/bata.cl2 monsters/bat/batd.cl2 monsters/bat/bath.cl2 monsters/bat/batn.cl2 monsters/bat/batw.cl2
 cl22clx --width 96 monsters/golem/golema.cl2 monsters/golem/golemd.cl2 monsters/golem/golems.cl2 monsters/golem/golemw.cl2
-cl22clx --width 96 monsters/unrav/unrava.cl2 monsters/unrav/unravd.cl2 monsters/unrav/unravh.cl2 monsters/unrav/unravn.cl2 monsters/unrav/unravs.cl2
+cl22clx --width 96 monsters/unrav/unravd.cl2 monsters/unrav/unravh.cl2 monsters/unrav/unravn.cl2 monsters/unrav/unravs.cl2
+# cl22clx --width 96 monsters/unrav/unrava.cl2
 cel2clx --width 128 towners/animals/cow.cel
 cel2clx --width 96 towners/smith/smithn.cel towners/twnf/twnfn.cel towners/butch/deadguy.cel towners/townwmn1/witch.cel towners/townwmn1/wmnn.cel towners/townboy/pegkid1.cel towners/healer/healer.cel towners/strytell/strytell.cel towners/drunk/twndrunk.cel
 cl22clx --width 96 missiles/arrows.cl2
@@ -82,11 +84,10 @@ cel2clx --width 61 ctrlpan/talkbutt.cel
 cel2clx --width 71 ctrlpan/panel8bu.cel
 cel2clx --width 95,41,41,41,41,41,41,41,41 data/charbut.cel
 cel2clx --width 32 items/duricons.cel
-cel2clx --width 320 data/quest.cel
 cel2clx --width 261 ctrlpan/golddrop.cel
 cel2clx --width 33,32,32,32,32,32,32,32,32,32,23,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56 data/inv/objcurs.cel
 cel2clx --width 56 ctrlpan/spelicon.cel
-cel2clx --width 320 data/spellbk.cel
+cel2clx --width 320 data/quest.cel data/spellbk.cel data/inv/inv_sor.cel data/inv/inv.cel data/inv/inv_rog.cel
 cel2clx --width 76 data/spellbkb.cel
 cel2clx --width 37 data/spelli2.cel
 cel2clx --width 128 objects/altboy.cel objects/lshrineg.cel objects/lzstand.cel objects/nude2.cel objects/mfountn.cel objects/pfountn.cel objects/tfountn.cel objects/rshrineg.cel objects/sarc.cel objects/tnudem.cel objects/tnudew.cel objects/tsoul.cel
@@ -94,6 +95,16 @@ cel2clx --width 160 objects/burncros.cel
 cel2clx --width 64 objects/l1braz.cel objects/l1doors.cel objects/l2doors.cel objects/l3doors.cel objects/miniwatr.cel objects/traphole.cel
 cel2clx --width 96 objects/angel.cel objects/armstand.cel objects/banner.cel objects/barrel.cel objects/barrelex.cel objects/bcase.cel objects/bkslbrnt.cel objects/bloodfnt.cel objects/book1.cel objects/book2.cel objects/bshelf.cel objects/candle2.cel objects/cauldren.cel objects/chest1.cel objects/chest2.cel objects/chest3.cel objects/cruxsk1.cel objects/cruxsk2.cel objects/cruxsk3.cel objects/decap.cel objects/flame1.cel objects/goatshrn.cel objects/lever.cel objects/mcirl.cel objects/mushptch.cel objects/pedistl.cel objects/prsrplt1.cel objects/rockstan.cel objects/skulfire.cel objects/skulpile.cel objects/skulstik.cel objects/switch4.cel objects/weapstnd.cel objects/wtorch1.cel objects/wtorch2.cel objects/wtorch3.cel objects/wtorch4.cel
 cel2clx --width 96 items/armor2.cel items/axe.cel items/fbttle.cel items/bow.cel items/goldflip.cel items/helmut.cel items/mace.cel items/shield.cel items/swrdflip.cel items/rock.cel items/cleaver.cel items/staff.cel items/ring.cel items/crownf.cel items/larmor.cel items/wshield.cel items/scroll.cel items/fplatear.cel items/fbook.cel items/food.cel items/fbttlebb.cel items/fbttledy.cel items/fbttleor.cel items/fbttlebr.cel items/fbttlebl.cel items/fbttleby.cel items/fbttlewh.cel items/fbttledb.cel items/fear.cel items/fbrain.cel items/fmush.cel items/innsign.cel items/bldstn.cel items/fanvil.cel items/flazstaf.cel
+cel2clx --width 296 data/diabsmal.cel
+cel2clx --width 640 gendata/cuttt.cel gendata/cut2.cel gendata/cut3.cel gendata/cut4.cel gendata/cutportl.cel gendata/cutportr.cel gendata/cutgate.cel gendata/cutstart.cel gendata/cutl1d.cel
+cel2clx --width 12 data/textslid.cel
+cel2clx --width 271 data/textbox2.cel
+cel2clx --width 48 data/pentspin.cel
+cel2clx --width 27 data/option.cel
+cel2clx --width 287 data/optbar.cel
+cel2clx --width 12 data/pentspn2.cel
+cel2clx --width 591 data/textbox.cel
+cel2clx --width 64 data/square.cel
 pcx2clx --num-sprites 15 ui_art/but_sml.pcx
 pcx2clx ui_art/credits.pcx
 pcx2clx --transparent-color 0 ui_art/cursor.pcx

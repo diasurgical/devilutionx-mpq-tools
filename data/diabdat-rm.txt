@@ -206,12 +206,12 @@ monsters/fatc/fatcs2.wav
 monsters/fat/fats1.wav
 monsters/fat/fats2.wav
 monsters/fat/fat.trn
-monsters/fireman/firema.clx
-monsters/fireman/firemd.clx
-monsters/fireman/firemh.clx
-monsters/fireman/firemn.clx
-monsters/fireman/firems.clx
-monsters/fireman/firemw.clx
+monsters/fireman/firema.cl2
+monsters/fireman/firemd.cl2
+monsters/fireman/firemh.cl2
+monsters/fireman/firemn.cl2
+monsters/fireman/firems.cl2
+monsters/fireman/firemw.cl2
 monsters/gargoyle/gargos1.wav
 monsters/gargoyle/gargos2.wav
 monsters/gargoyle/gargr.trn
@@ -222,7 +222,7 @@ monsters/goatlord/goatla1.wav
 monsters/goatlord/goatla2.wav
 monsters/goatlord/goatld1.wav
 monsters/goatlord/goatld2.wav
-monsters/goatlord/goatld.clx
+monsters/goatlord/goatld.cl2
 monsters/goatlord/goatlh1.wav
 monsters/goatlord/goatlh2.wav
 monsters/goatmace/goats1.wav
@@ -296,7 +296,7 @@ monsters/succ/flare.cel
 monsters/succ/flarexp.cel
 monsters/succ/redv.trn
 monsters/thin/lghning.cel
-monsters/unrav/unrava.clx
+monsters/unrav/unrava.cl2
 monsters/unrav/unravw.cel
 monsters/worm/worms1.wav
 monsters/worm/worms2.wav
