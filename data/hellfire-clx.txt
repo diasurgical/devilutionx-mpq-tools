@@ -49,7 +49,10 @@ cel2clx --width 96 items/bombs1.cel items/halfps1.cel items/wholeps1.cel items/r
 cel2clx --width 640 items/map/mapztown.cel nlevels/cutl5.cel nlevels/cutl6.cel
 cel2clx --width 430 data/hf_logo3.cel
 pcx2clx --num-sprites 6 ui_art/heros.pcx
-pcx2clx --num-sprites 16 ui_art/hf_logo1.pcx
+pcx2clx --num-sprites 16 --export-palette ui_art/hf_logo1.pcx
 pcx2clx --transparent-color 0 --num-sprites 16 ui_art/hf_logo2.pcx
-pcx2clx ui_art/mainmenu.pcx
-pcx2clx ui_art/support.pcx
+pcx2clx --export-palette ui_art/mainmenu.pcx
+pcx2clx --export-palette ui_art/selconn.pcx
+pcx2clx --export-palette ui_art/selgame.pcx
+pcx2clx --export-palette ui_art/selhero.pcx
+pcx2clx --export-palette ui_art/support.pcx
