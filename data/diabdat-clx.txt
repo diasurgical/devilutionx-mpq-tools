@@ -108,9 +108,9 @@ cel2clx --width 64 data/square.cel
 pcx2clx --num-sprites 15 ui_art/but_sml.pcx
 pcx2clx ui_art/credits.pcx
 pcx2clx --transparent-color 0 ui_art/cursor.pcx
-pcx2clx --transparent-color 250 ui_art/focus16.pcx
-pcx2clx --transparent-color 250 ui_art/focus42.pcx
-pcx2clx --transparent-color 250 ui_art/focus.pcx
+pcx2clx --num-sprites 8 --transparent-color 250 ui_art/focus16.pcx
+pcx2clx --num-sprites 8 --transparent-color 250 ui_art/focus42.pcx
+pcx2clx --num-sprites 8 --transparent-color 250 ui_art/focus.pcx
 pcx2clx --num-sprites 4 ui_art/heros.pcx
 pcx2clx --transparent-color 250 --num-sprites 15 ui_art/logo.pcx
 pcx2clx --transparent-color 255 ui_art/lpopup.pcx
