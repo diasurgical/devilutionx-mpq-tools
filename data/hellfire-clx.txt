@@ -48,6 +48,7 @@ cel2clx --width 96 objects/l5books.cel objects/l5lever.cel objects/l5light.cel o
 cel2clx --width 96 items/bombs1.cel items/halfps1.cel items/wholeps1.cel items/runes1.cel items/teddys1.cel items/cows1.cel items/donkys1.cel items/mooses1.cel
 cel2clx --width 640 items/map/mapztown.cel nlevels/cutl5.cel nlevels/cutl6.cel
 cel2clx --width 430 data/hf_logo3.cel
+cel2clx --width 64 nlevels/l5data/l5s.cel
 pcx2clx --num-sprites 6 ui_art/heros.pcx
 pcx2clx --num-sprites 16 --export-palette ui_art/hf_logo1.pcx
 pcx2clx --transparent-color 0 --num-sprites 16 ui_art/hf_logo2.pcx

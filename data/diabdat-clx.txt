@@ -105,6 +105,9 @@ cel2clx --width 287 data/optbar.cel
 cel2clx --width 12 data/pentspn2.cel
 cel2clx --width 591 data/textbox.cel
 cel2clx --width 64 data/square.cel
+cel2clx --width 64 levels/towndata/towns.cel
+cel2clx --width 64 levels/l1data/l1s.cel
+cel2clx --width 64 levels/l2data/l2s.cel
 pcx2clx --num-sprites 15 ui_art/but_sml.pcx
 pcx2clx --export-palette ui_art/credits.pcx
 pcx2clx --transparent-color 0 ui_art/cursor.pcx
