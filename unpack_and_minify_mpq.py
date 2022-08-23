@@ -97,10 +97,15 @@ def convert(mpq_path: str, listfile_path: str, output_dir: str, mp3: bool):
     os.makedirs(output_dir, exist_ok=True)
     cwd = os.getcwd()
     os.chdir(output_dir)
-    unpack(listfile_path, mpq_abs_path)
-    convert_to_clx(mpq_name)
-    if mp3:
-        convert_to_mp3()
+    dest_name = get_dest_name(mpq_name)
+    if dest_name == 'diabdat' or dest_name == 'hellfire':
+        unpack(listfile_path, mpq_abs_path)
+        convert_to_clx(mpq_name)
+        if mp3:
+            convert_to_mp3()
+    else:
+        # fonts.mpq, pl.mpq, etc...
+        run('smpq', '--extract', mpq_abs_path)
     os.chdir(cwd)
 
 
