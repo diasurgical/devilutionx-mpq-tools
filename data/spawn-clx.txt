@@ -1,0 +1,105 @@
+cl22clx --width 128 monsters/falspear/phalla.cl2 monsters/falspear/phalld.cl2 monsters/falspear/phallh.cl2 monsters/falspear/phalln.cl2 monsters/falspear/phalls.cl2 monsters/falspear/phallw.cl2
+cl22clx --width 128 monsters/falsword/falla.cl2 monsters/falsword/falld.cl2 monsters/falsword/fallh.cl2 monsters/falsword/falln.cl2 monsters/falsword/falls.cl2 monsters/falsword/fallw.cl2
+cl22clx --width 128 monsters/scav/scava.cl2 monsters/scav/scavd.cl2 monsters/scav/scavh.cl2 monsters/scav/scavn.cl2 monsters/scav/scavs.cl2 monsters/scav/scavw.cl2
+cl22clx --width 128 monsters/skelaxe/sklaxa.cl2 monsters/skelaxe/sklaxd.cl2 monsters/skelaxe/sklaxh.cl2 monsters/skelaxe/sklaxn.cl2 monsters/skelaxe/sklaxs.cl2 monsters/skelaxe/sklaxw.cl2
+cl22clx --width 128 monsters/skelbow/sklbwa.cl2 monsters/skelbow/sklbwd.cl2 monsters/skelbow/sklbwh.cl2 monsters/skelbow/sklbwn.cl2 monsters/skelbow/sklbws.cl2 monsters/skelbow/sklbww.cl2
+cl22clx --width 128 monsters/skelsd/sklsra.cl2 monsters/skelsd/sklsrd.cl2 monsters/skelsd/sklsrh.cl2 monsters/skelsd/sklsrn.cl2 monsters/skelsd/sklsrs.cl2 monsters/skelsd/sklsrw.cl2
+cl22clx --width 128 monsters/zombie/zombiea.cl2 monsters/zombie/zombied.cl2 monsters/zombie/zombieh.cl2 monsters/zombie/zombien.cl2 monsters/zombie/zombiew.cl2
+cl22clx --width 96 monsters/bat/bata.cl2 monsters/bat/batd.cl2 monsters/bat/bath.cl2 monsters/bat/batn.cl2 monsters/bat/batw.cl2
+cl22clx --width 96 monsters/golem/golema.cl2 monsters/golem/golemd.cl2 monsters/golem/golems.cl2 monsters/golem/golemw.cl2
+cel2clx --width 128 towners/animals/cow.cel
+cel2clx --width 96 towners/smith/smithn.cel towners/twnf/twnfn.cel towners/butch/deadguy.cel towners/townwmn1/witch.cel towners/townwmn1/wmnn.cel towners/townboy/pegkid1.cel towners/healer/healer.cel towners/strytell/strytell.cel towners/drunk/twndrunk.cel
+cl22clx --width 96 missiles/arrows.cl2
+cl22clx --width 96 missiles/fireba1.cl2 missiles/fireba2.cl2 missiles/fireba3.cl2 missiles/fireba4.cl2 missiles/fireba5.cl2 missiles/fireba6.cl2 missiles/fireba7.cl2 missiles/fireba8.cl2 missiles/fireba9.cl2 missiles/fireba10.cl2 missiles/fireba11.cl2 missiles/fireba12.cl2 missiles/fireba13.cl2 missiles/fireba14.cl2 missiles/fireba15.cl2 missiles/fireba16.cl2
+cl22clx --width 96 missiles/guard1.cl2 missiles/guard2.cl2 missiles/guard3.cl2
+cl22clx --width 96 missiles/lghning.cl2
+cl22clx --width 128 missiles/firewal1.cl2 missiles/firewal2.cl2
+cl22clx --width 128 missiles/magblos.cl2
+cl22clx --width 96 missiles/portal1.cl2 missiles/portal2.cl2
+cl22clx --width 160 missiles/bluexfr.cl2
+cl22clx --width 160 missiles/bluexbk.cl2
+cl22clx --width 96 missiles/manashld.cl2
+cl22clx --width 96 missiles/farrow1.cl2 missiles/farrow2.cl2 missiles/farrow3.cl2 missiles/farrow4.cl2 missiles/farrow5.cl2 missiles/farrow6.cl2 missiles/farrow7.cl2 missiles/farrow8.cl2 missiles/farrow9.cl2 missiles/farrow10.cl2 missiles/farrow11.cl2 missiles/farrow12.cl2 missiles/farrow13.cl2 missiles/farrow14.cl2 missiles/farrow15.cl2 missiles/farrow16.cl2
+cl22clx --width 96 missiles/newexp.cl2
+cl22clx --width 128 missiles/shatter1.cl2
+cl22clx --width 160 missiles/bigexp.cl2
+cl22clx --width 96 missiles/inferno.cl2
+cl22clx --width 96 missiles/thinlght.cl2
+cl22clx --width 128 missiles/flare.cl2
+cl22clx --width 128 missiles/flareexp.cl2
+cl22clx --width 128 missiles/magball1.cl2 missiles/magball2.cl2 missiles/magball3.cl2 missiles/magball4.cl2 missiles/magball5.cl2 missiles/magball6.cl2 missiles/magball7.cl2 missiles/magball8.cl2
+cl22clx --width 64 missiles/miniltng.cl2
+cl22clx --width 96 missiles/holy1.cl2 missiles/holy2.cl2 missiles/holy3.cl2 missiles/holy4.cl2 missiles/holy5.cl2 missiles/holy6.cl2 missiles/holy7.cl2 missiles/holy8.cl2 missiles/holy9.cl2 missiles/holy10.cl2 missiles/holy11.cl2 missiles/holy12.cl2 missiles/holy13.cl2 missiles/holy14.cl2 missiles/holy15.cl2 missiles/holy16.cl2
+cl22clx --width 160 missiles/holyexpl.cl2
+cl22clx --width 96 missiles/larrow1.cl2 missiles/larrow2.cl2 missiles/larrow3.cl2 missiles/larrow4.cl2 missiles/larrow5.cl2 missiles/larrow6.cl2 missiles/larrow7.cl2 missiles/larrow8.cl2 missiles/larrow9.cl2 missiles/larrow10.cl2 missiles/larrow11.cl2 missiles/larrow12.cl2 missiles/larrow13.cl2 missiles/larrow14.cl2 missiles/larrow15.cl2 missiles/larrow16.cl2
+cl22clx --width 96 missiles/acidbf1.cl2 missiles/acidbf2.cl2 missiles/acidbf3.cl2 missiles/acidbf4.cl2 missiles/acidbf5.cl2 missiles/acidbf6.cl2 missiles/acidbf7.cl2 missiles/acidbf8.cl2 missiles/acidbf9.cl2 missiles/acidbf10.cl2 missiles/acidbf11.cl2 missiles/acidbf12.cl2 missiles/acidbf13.cl2 missiles/acidbf14.cl2 missiles/acidbf15.cl2 missiles/acidbf16.cl2
+cl22clx --width 96 missiles/acidspla.cl2
+cl22clx --width 96 missiles/acidpud1.cl2 missiles/acidpud2.cl2
+cl22clx --width 96 missiles/firerun1.cl2 missiles/firerun2.cl2 missiles/firerun3.cl2 missiles/firerun4.cl2 missiles/firerun5.cl2 missiles/firerun6.cl2 missiles/firerun7.cl2 missiles/firerun8.cl2
+cl22clx --width 96 missiles/ressur1.cl2
+cl22clx --width 96 missiles/sklball1.cl2 missiles/sklball2.cl2 missiles/sklball3.cl2 missiles/sklball4.cl2 missiles/sklball5.cl2 missiles/sklball6.cl2 missiles/sklball7.cl2 missiles/sklball8.cl2 missiles/sklball9.cl2
+cl22clx --width 96 missiles/rportal1.cl2 missiles/rportal2.cl2
+cl22clx --width 160 missiles/fireplar.cl2
+cl22clx --width 96 missiles/scubmisb.cl2
+cl22clx --width 128 missiles/scbsexpb.cl2
+cl22clx --width 96 missiles/scubmisc.cl2
+cl22clx --width 128 missiles/scbsexpc.cl2
+cl22clx --width 96 missiles/scubmisd.cl2
+cl22clx --width 128 missiles/scbsexpd.cl2
+cl22clx --width 96 plrgfx/warrior/wlu/wlust.cl2 plrgfx/warrior/wlu/wluht.cl2 plrgfx/warrior/wlu/wluas.cl2 plrgfx/warrior/wlu/wlufm.cl2 plrgfx/warrior/wlu/wluqm.cl2 plrgfx/warrior/wlu/wluat.cl2 plrgfx/warrior/wlu/wlubl.cl2 plrgfx/warrior/wlu/wluaw.cl2 plrgfx/warrior/wlu/wlulm.cl2 plrgfx/warrior/wlu/wluwl.cl2 plrgfx/warrior/wlh/wlhwl.cl2 plrgfx/warrior/wlh/wlhst.cl2 plrgfx/warrior/wlh/wlhat.cl2 plrgfx/warrior/wlh/wlhaw.cl2 plrgfx/warrior/wlh/wlhfm.cl2 plrgfx/warrior/wlh/wlhbl.cl2 plrgfx/warrior/wlh/wlhqm.cl2 plrgfx/warrior/wlh/wlhas.cl2 plrgfx/warrior/wlh/wlhht.cl2 plrgfx/warrior/wlh/wlhlm.cl2 plrgfx/warrior/wla/wlaat.cl2 plrgfx/warrior/wla/wlaht.cl2 plrgfx/warrior/wla/wlaqm.cl2 plrgfx/warrior/wla/wlaas.cl2 plrgfx/warrior/wla/wlaaw.cl2 plrgfx/warrior/wla/wlast.cl2 plrgfx/warrior/wla/wlafm.cl2 plrgfx/warrior/wla/wlalm.cl2 plrgfx/warrior/wla/wlawl.cl2 plrgfx/warrior/wlm/wlmwl.cl2 plrgfx/warrior/wlm/wlmas.cl2 plrgfx/warrior/wlm/wlmfm.cl2 plrgfx/warrior/wlm/wlmqm.cl2 plrgfx/warrior/wlm/wlmat.cl2 plrgfx/warrior/wlm/wlmst.cl2 plrgfx/warrior/wlm/wlmlm.cl2 plrgfx/warrior/wlm/wlmht.cl2 plrgfx/warrior/wlm/wlmaw.cl2 plrgfx/warrior/wld/wldht.cl2 plrgfx/warrior/wld/wldlm.cl2 plrgfx/warrior/wld/wldbl.cl2 plrgfx/warrior/wld/wldat.cl2 plrgfx/warrior/wld/wldst.cl2 plrgfx/warrior/wld/wldqm.cl2 plrgfx/warrior/wld/wldaw.cl2 plrgfx/warrior/wld/wldfm.cl2 plrgfx/warrior/wld/wldwl.cl2 plrgfx/warrior/wld/wldas.cl2 plrgfx/warrior/wlb/wlbwl.cl2 plrgfx/warrior/wlb/wlbht.cl2 plrgfx/warrior/wlb/wlbat.cl2 plrgfx/warrior/wlb/wlbqm.cl2 plrgfx/warrior/wlb/wlbst.cl2 plrgfx/warrior/wlb/wlbaw.cl2 plrgfx/warrior/wlb/wlblm.cl2 plrgfx/warrior/wlb/wlbfm.cl2 plrgfx/warrior/wlb/wlbas.cl2 plrgfx/warrior/wln/wlnst.cl2 plrgfx/warrior/wln/wlnas.cl2 plrgfx/warrior/wln/wlnat.cl2 plrgfx/warrior/wln/wlnfm.cl2 plrgfx/warrior/wln/wlnaw.cl2 plrgfx/warrior/wln/wlndt.cl2 plrgfx/warrior/wln/wlnwl.cl2 plrgfx/warrior/wln/wlnht.cl2 plrgfx/warrior/wln/wlnlm.cl2 plrgfx/warrior/wln/wlnqm.cl2 plrgfx/warrior/wls/wlsht.cl2 plrgfx/warrior/wls/wlsst.cl2 plrgfx/warrior/wls/wlswl.cl2 plrgfx/warrior/wls/wlslm.cl2 plrgfx/warrior/wls/wlsat.cl2 plrgfx/warrior/wls/wlsqm.cl2 plrgfx/warrior/wls/wlsas.cl2 plrgfx/warrior/wls/wlsaw.cl2 plrgfx/warrior/wls/wlsfm.cl2 plrgfx/warrior/wlt/wltqm.cl2 plrgfx/warrior/wlt/wltfm.cl2 plrgfx/warrior/wlt/wltwl.cl2 plrgfx/warrior/wlt/wltat.cl2 plrgfx/warrior/wlt/wltst.cl2 plrgfx/warrior/wlt/wltas.cl2 plrgfx/warrior/wlt/wltht.cl2 plrgfx/warrior/wlt/wltaw.cl2 plrgfx/warrior/wlt/wltlm.cl2
+cel2clx --width 640 ctrlpan/panel8.cel
+cel2clx --width 88 ctrlpan/p8bulbs.cel
+cel2clx --width 640 ctrlpan/talkpanl.cel
+cel2clx --width 33 ctrlpan/p8but2.cel
+cel2clx --width 61 ctrlpan/talkbutt.cel
+cel2clx --width 71 ctrlpan/panel8bu.cel
+cel2clx --width 95,41,41,41,41,41,41,41,41 data/charbut.cel
+cel2clx --width 32 items/duricons.cel
+cel2clx --width 261 ctrlpan/golddrop.cel
+cel2clx --width 33,32,32,32,32,32,32,32,32,32,23,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,56 data/inv/objcurs.cel
+cel2clx --width 56 ctrlpan/spelicon.cel
+cel2clx --width 320 data/quest.cel data/spellbk.cel data/inv/inv.cel
+cel2clx --width 76 data/spellbkb.cel
+cel2clx --width 37 data/spelli2.cel
+cel2clx --width 128 objects/altboy.cel objects/lshrineg.cel objects/lzstand.cel objects/nude2.cel objects/mfountn.cel objects/pfountn.cel objects/tfountn.cel objects/rshrineg.cel objects/sarc.cel objects/tnudem.cel objects/tnudew.cel objects/tsoul.cel
+cel2clx --width 160 objects/burncros.cel
+cel2clx --width 64 objects/l1braz.cel objects/l1doors.cel objects/l2doors.cel objects/l3doors.cel objects/miniwatr.cel objects/traphole.cel
+cel2clx --width 96 objects/angel.cel objects/armstand.cel objects/banner.cel objects/barrel.cel objects/barrelex.cel objects/bcase.cel objects/bkslbrnt.cel objects/bloodfnt.cel objects/book1.cel objects/book2.cel objects/bshelf.cel objects/candle2.cel objects/cauldren.cel objects/chest1.cel objects/chest2.cel objects/chest3.cel objects/cruxsk1.cel objects/cruxsk2.cel objects/cruxsk3.cel objects/decap.cel objects/flame1.cel objects/goatshrn.cel objects/lever.cel objects/mcirl.cel objects/mushptch.cel objects/pedistl.cel objects/prsrplt1.cel objects/rockstan.cel objects/skulfire.cel objects/skulpile.cel objects/skulstik.cel objects/switch4.cel objects/weapstnd.cel objects/wtorch1.cel objects/wtorch2.cel objects/wtorch3.cel objects/wtorch4.cel
+cel2clx --width 96 items/armor2.cel items/axe.cel items/fbttle.cel items/bow.cel items/goldflip.cel items/helmut.cel items/mace.cel items/shield.cel items/swrdflip.cel items/rock.cel items/cleaver.cel items/staff.cel items/ring.cel items/crownf.cel items/larmor.cel items/wshield.cel items/scroll.cel items/fplatear.cel items/fbook.cel items/food.cel items/fbttlebb.cel items/fbttledy.cel items/fbttleor.cel items/fbttlebr.cel items/fbttlebl.cel items/fbttleby.cel items/fbttlewh.cel items/fbttledb.cel items/fear.cel items/fbrain.cel items/fmush.cel items/innsign.cel items/bldstn.cel items/fanvil.cel items/flazstaf.cel
+cel2clx --width 296 data/diabsmal.cel
+cel2clx --width 640 gendata/cuttt.cel gendata/cut2.cel gendata/cut3.cel gendata/cut4.cel gendata/cutportl.cel gendata/cutportr.cel gendata/cutgate.cel gendata/cutstart.cel gendata/cutl1d.cel
+cel2clx --width 12 data/textslid.cel
+cel2clx --width 271 data/textbox2.cel
+cel2clx --width 48 data/pentspin.cel
+cel2clx --width 27 data/option.cel
+cel2clx --width 287 data/optbar.cel
+cel2clx --width 12 data/pentspn2.cel
+cel2clx --width 591 data/textbox.cel
+cel2clx --width 64 data/square.cel
+cel2clx --width 64 levels/towndata/towns.cel
+cel2clx --width 64 levels/l1data/l1s.cel
+pcx2clx --num-sprites 15 ui_art/but_sml.pcx
+pcx2clx --export-palette ui_art/credits.pcx
+pcx2clx --transparent-color 0 ui_art/cursor.pcx
+pcx2clx --num-sprites 8 --transparent-color 250 ui_art/focus16.pcx
+pcx2clx --num-sprites 8 --transparent-color 250 ui_art/focus42.pcx
+pcx2clx --num-sprites 4 ui_art/heros.pcx
+pcx2clx --transparent-color 250 --num-sprites 15 ui_art/logo.pcx
+pcx2clx --transparent-color 255 ui_art/lpopup.pcx
+pcx2clx --transparent-color 255 ui_art/lrpopup.pcx
+pcx2clx --export-palette ui_art/mainmenu.pcx
+pcx2clx ui_art/prog_bg.pcx
+pcx2clx ui_art/prog_fil.pcx
+pcx2clx --transparent-color 0 ui_art/radio1.pcx
+pcx2clx --transparent-color 0 ui_art/radio3.pcx
+pcx2clx --num-sprites 4 ui_art/sb_arrow.pcx
+pcx2clx ui_art/sb_bg.pcx
+pcx2clx ui_art/sb_thumb.pcx
+pcx2clx --export-palette ui_art/selconn.pcx
+pcx2clx --export-palette ui_art/selgame.pcx
+pcx2clx --export-palette ui_art/selhero.pcx
+pcx2clx --transparent-color 250 --num-sprites 15 ui_art/smlogo.pcx
+pcx2clx --transparent-color 255 ui_art/spopup.pcx
+pcx2clx --transparent-color 255 ui_art/srpopup.pcx
+pcx2clx --export-palette ui_art/swmmenu.pcx
+pcx2clx --export-palette ui_art/title.pcx

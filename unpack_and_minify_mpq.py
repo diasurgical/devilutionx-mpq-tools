@@ -60,7 +60,7 @@ def unpack(listfile_path: str, mpq_abs_path: str):
     with open(get_files_to_remove_path(get_mpq_name(mpq_abs_path))) as f:
         to_remove = f.read().replace('/', '\\').splitlines()
     files = sorted(list(set(files) - set(to_remove)))
-    run('smpq', '--extract', mpq_abs_path, *files)
+    run('smpq', '--no-archive-listfile', '--no-system-listfiles', '--extract', mpq_abs_path, *files)
 
 
 def convert_to_clx(mpq_name: str):
@@ -98,7 +98,7 @@ def convert(mpq_path: str, listfile_path: str, output_dir: str, mp3: bool):
     cwd = os.getcwd()
     os.chdir(output_dir)
     dest_name = get_dest_name(mpq_name)
-    if dest_name == 'diabdat' or dest_name == 'hellfire':
+    if dest_name == 'spawn' or dest_name == 'diabdat' or dest_name == 'hellfire':
         unpack(listfile_path, mpq_abs_path)
         convert_to_clx(mpq_name)
         if mp3:
