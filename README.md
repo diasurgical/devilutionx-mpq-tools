@@ -6,7 +6,27 @@ Unpacks an MPQ and minifies its assets.
 
 All graphics assets are converted to CLX.
 
-Dependencies:
-- smpq
-- pcx2clx cel2clx cl22clx https://github.com/diasurgical/devilutionx-graphics-tools
-- lame if converting audio to mp3 (optional)
+### Usage
+
+Simply drop the binary into the directory with the MPQs and run it.
+
+Alternatively, run `unpack_and_minify_mpq --help` to see the list of options.
+
+If `--mp3` is passed, audio is converted from WAV to MP3.
+
+### Install
+
+TODO: CI builds and links to Releases.
+
+### Build from source
+
+```bash
+cmake -S. -Bbuild-rel -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF
+cmake --build build-rel -j $(getconf _NPROCESSORS_ONLN)
+```
+
+To install the built binary:
+
+```bash
+sudo cmake --install build-rel
+```
