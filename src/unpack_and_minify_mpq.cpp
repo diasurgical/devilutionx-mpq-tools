@@ -312,7 +312,8 @@ public:
 	{
 		const int32_t error = libmpq__archive_open(&archive_, path.c_str(), 0);
 		if (error != 0) {
-			std::cerr << "Failed to open MPQ at " << path << ": " << libmpq__strerror(error) << std::endl;
+			std::cerr << "Failed to open MPQ at " << path << ": "
+			          << libmpq__strerror(error) << std::endl;
 			std::exit(1);
 		}
 	}
@@ -324,16 +325,20 @@ public:
 		int32_t error;
 		if ((error = libmpq__file_number(archive_, mpqPath, &mpqFileNumber)) != 0
 		    || (error = libmpq__file_size_unpacked(archive_, mpqFileNumber, &mpqFileSize)) != 0) {
-			std::cerr << "Failed to read MPQ file " << mpqPath << ": " << libmpq__strerror(error) << " " << mpqPath << std::endl;
+			std::cerr << "Failed to read MPQ file " << mpqPath << ": "
+			          << libmpq__strerror(error) << " " << mpqPath << std::endl;
 			std::exit(1);
 		}
-
 		if (buf.size() < static_cast<size_t>(mpqFileSize)) {
 			buf.resize(static_cast<size_t>(mpqFileSize));
 			tmp_buf_.resize(static_cast<size_t>(mpqFileSize));
 		}
-		if ((error = libmpq__file_read_with_temporary_buffer(archive_, mpqFileNumber, buf.data(), mpqFileSize, tmp_buf_.data(), mpqFileSize, nullptr)) != 0) {
-			std::cerr << "Failed to read MPQ file " << mpqPath << ": " << libmpq__strerror(error) << " " << mpqPath << std::endl;
+		if ((error = libmpq__file_read_with_temporary_buffer(
+		         archive_, mpqFileNumber, buf.data(), mpqFileSize,
+		         tmp_buf_.data(), mpqFileSize, /*transferred=*/nullptr))
+		    != 0) {
+			std::cerr << "Failed to read MPQ file " << mpqPath << ": "
+			          << libmpq__strerror(error) << " " << mpqPath << std::endl;
 			std::exit(1);
 		}
 		return static_cast<size_t>(mpqFileSize);
@@ -413,7 +418,8 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 			outputPath.replace_extension(".clx");
 			if (std::holds_alternative<Cl2ToClxCommand>(it->second)) {
 				const Cl2ToClxCommand &command = std::get<Cl2ToClxCommand>(it->second);
-				std::optional<dvl_gfx::IoError> clxError = dvl_gfx::Cl2ToClx(fileBuf.data(), mpqFileSize, command.widths.data(), command.widths.size());
+				const std::optional<dvl_gfx::IoError> clxError = dvl_gfx::Cl2ToClx(
+				    fileBuf.data(), mpqFileSize, command.widths.data(), command.widths.size());
 				if (clxError.has_value()) {
 					std::cerr << "Failed CL2->CLX conversion: " << clxError->message << " " << mpqPath << std::endl;
 					std::exit(1);
@@ -422,7 +428,8 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 			} else if (std::holds_alternative<CelToClxCommand>(it->second)) {
 				const CelToClxCommand &command = std::get<CelToClxCommand>(it->second);
 				clxData.clear();
-				const std::optional<dvl_gfx::IoError> clxError = dvl_gfx::CelToClx(fileBuf.data(), mpqFileSize, command.widths.data(), command.widths.size(), clxData);
+				const std::optional<dvl_gfx::IoError> clxError = dvl_gfx::CelToClx(
+				    fileBuf.data(), mpqFileSize, command.widths.data(), command.widths.size(), clxData);
 				if (clxError.has_value()) {
 					std::cerr << "Failed CL2->CLX conversion: " << clxError->message << " " << mpqPath << std::endl;
 					std::exit(1);
@@ -432,7 +439,9 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 				const PcxToClxCommand &command = std::get<PcxToClxCommand>(it->second);
 				clxData.clear();
 				std::array<uint8_t, 256 * 3> paletteData;
-				const std::optional<dvl_gfx::IoError> clxError = dvl_gfx::PcxToClx(fileBuf.data(), mpqFileSize, command.numFrames, command.transparentColor, clxData, command.exportPalette ? paletteData.data() : nullptr);
+				const std::optional<dvl_gfx::IoError> clxError = dvl_gfx::PcxToClx(
+				    fileBuf.data(), mpqFileSize, command.numFrames, command.transparentColor, clxData,
+				    command.exportPalette ? paletteData.data() : nullptr);
 				if (clxError.has_value()) {
 					std::cerr << "Failed CL2->CLX conversion: " << clxError->message << " " << mpqPath << std::endl;
 					std::exit(1);
