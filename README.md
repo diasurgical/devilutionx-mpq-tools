@@ -16,7 +16,9 @@ If `--mp3` is passed, audio is converted from WAV to MP3. Not implemented yet.
 
 ### Install
 
-TODO: CI builds and links to Releases.
+On Windows, download the latest release from https://github.com/diasurgical/devilutionx-mpq-tools/releases.
+
+On other OSes, build and install from source (see below).
 
 ### Build from source
 
