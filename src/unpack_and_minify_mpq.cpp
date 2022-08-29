@@ -42,7 +42,7 @@ void PrintHelp()
 
 std::string SrcName(const std::filesystem::path &mpq)
 {
-	std::string result = mpq.stem();
+	std::string result = mpq.stem().string();
 	if (result == "DIABDAT")
 		result = "diabdat";
 	return result;
@@ -310,7 +310,7 @@ class MpqArchive {
 public:
 	explicit MpqArchive(const std::filesystem::path &path)
 	{
-		const int32_t error = libmpq__archive_open(&archive_, path.c_str(), 0);
+		const int32_t error = libmpq__archive_open(&archive_, path.string().c_str(), 0);
 		if (error != 0) {
 			std::cerr << "Failed to open MPQ at " << path << ": "
 			          << libmpq__strerror(error) << std::endl;

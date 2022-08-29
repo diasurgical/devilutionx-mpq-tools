@@ -1,4 +1,4 @@
 /output/
 /build/
-/build-rel/
+/build-*/
 /.vscode/
