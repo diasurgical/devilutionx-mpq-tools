@@ -41,6 +41,7 @@ add_subdirectory(third_party/bzip2)
 add_subdirectory(third_party/zlib)
 add_subdirectory(third_party/libmpq)
 add_subdirectory(third_party/dvl_gfx)
+add_subdirectory(third_party/lame)
 
 foreach(_path
   diabdat-clx diabdat-listfile diabdat-rm hellfire-clx hellfire-listfile hellfire-rm
@@ -92,6 +93,7 @@ target_link_libraries(unpack_and_minify_mpq PRIVATE
   DvlGfx::cel2clx
   DvlGfx::cl22clx
   DvlGfx::pcx2clx
+  lame_encoder
   embedded_files)
 
 add_custom_command(

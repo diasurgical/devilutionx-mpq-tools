@@ -18,6 +18,7 @@
 
 #include <cel2clx.hpp>
 #include <cl22clx.hpp>
+#include <lame.h>
 #include <libmpq/mpq.h>
 #include <pcx2clx.hpp>
 
