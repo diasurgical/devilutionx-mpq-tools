@@ -1,0 +1,49 @@
+name: Windows MinGW x86_64
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize]
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Create Build Environment
+      run: >
+        sudo apt-get update &&
+        sudo apt-get install -y cmake gcc-mingw-w64-x86-64 g++-mingw-w64-x86-64
+
+    - name: Configure CMake
+      shell: bash
+      working-directory: ${{github.workspace}}
+      env:
+        CMAKE_BUILD_TYPE: ${{github.event_name == 'release' && 'Release' || 'Debug'}}
+      run: cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.CMAKE_BUILD_TYPE}} -DBUILD_SHARED_LIBS=OFF
+
+    - name: Build
+      working-directory: ${{github.workspace}}
+      shell: bash
+      run: cmake --build build -j $(nproc)
+
+    - name: Upload-Package
+      if: ${{ !env.ACT }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: unpack_and_minify_mpq.zip
+        path: build/unpack_and_minify_mpq.exe
+
+    - name: Update Release
+      if: ${{ github.event_name == 'release' && !env.ACT }}
+      uses: svenstaro/upload-release-action@v2
+      with:
+        file: build/unpack_and_minify_mpq.exe
+        asset_name: unpack_and_minify_mpq_x86_64.exe
+        overwrite: true
