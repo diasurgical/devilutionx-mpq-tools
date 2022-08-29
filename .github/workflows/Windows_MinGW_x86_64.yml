@@ -26,7 +26,7 @@ jobs:
       working-directory: ${{github.workspace}}
       env:
         CMAKE_BUILD_TYPE: ${{github.event_name == 'release' && 'Release' || 'Debug'}}
-      run: cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.CMAKE_BUILD_TYPE}} -DBUILD_SHARED_LIBS=OFF -DCMAKE_TOOLCHAIN_FILE=../CMake/mingwcc64.toolchain.cmake
+      run: cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=${{env.CMAKE_BUILD_TYPE}} -DBUILD_SHARED_LIBS=OFF -DASAN=OFF -DUBSAN=OFF -DCMAKE_TOOLCHAIN_FILE=../CMake/mingwcc64.toolchain.cmake
 
     - name: Build
       working-directory: ${{github.workspace}}
