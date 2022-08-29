@@ -1,8 +1,9 @@
 include(functions/FetchContent_MakeAvailableExcludeFromAll)
 
+set(ENABLE_INSTALL OFF)
 FetchContent_Declare(
   dvl_gfx
-  URL https://github.com/diasurgical/devilutionx-graphics-tools/archive/451199134addb5b7e8159fd0d5605f198f7efdc7.tar.gz
-  URL_HASH MD5=354e0b5f07634bd35beae1489ef56d4b
+  URL https://github.com/diasurgical/devilutionx-graphics-tools/archive/95c3b4174b1c5e83bfb7f8681b663cb77ec9bcaa.tar.gz
+  URL_HASH MD5=8d9124f114a0b9a0bfdb1b9a9b7518dd
 )
-FetchContent_MakeAvailable(dvl_gfx)
+FetchContent_MakeAvailableExcludeFromAll(dvl_gfx)
