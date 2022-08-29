@@ -12,7 +12,7 @@ Simply drop the binary into the directory with the MPQs and run it.
 
 Alternatively, run `unpack_and_minify_mpq --help` to see the list of options.
 
-If `--mp3` is passed, audio is converted from WAV to MP3.
+If `--mp3` is passed, audio is converted from WAV to MP3. Not implemented yet.
 
 ### Install
 

@@ -31,7 +31,7 @@ Unpacks Diablo and/or Hellfire MPQ(s), converts all the graphics to CLX, and, op
 If no MPQs are passed on the command line, converts all the MPQs in the current directory.
 
 Options:
-  --mp3                       Convert WAV files to MP3.
+  --mp3                       Convert WAV files to MP3. Not implemented.
   --output-dir OUTPUT_DIR     Override output directory. Default: current directory.
 )";
 
@@ -478,6 +478,8 @@ int main(int argc, char *argv[])
 		}
 		if (arg == "--mp3") {
 			mp3 = true;
+			std::cerr << "--mp3 option is not implemented yet." << std::endl;
+			std::exit(64);
 		} else if (arg == "--output-dir") {
 			if (i + 1 == argc) {
 				std::cerr << "--output-dir requires an argument" << std::endl;
