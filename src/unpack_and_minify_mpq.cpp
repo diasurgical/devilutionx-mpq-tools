@@ -318,7 +318,7 @@ public:
 		}
 	}
 
-	size_t ReadFile(const char *mpqPath, std::vector<uint8_t> &buf)
+	size_t ReadFile(const char *mpqPath, std::vector<uint8_t> &buf, bool decrypt = true)
 	{
 		uint32_t mpqFileNumber;
 		libmpq__off_t mpqFileSize;
@@ -333,10 +333,16 @@ public:
 			buf.resize(static_cast<size_t>(mpqFileSize));
 			tmp_buf_.resize(static_cast<size_t>(mpqFileSize));
 		}
-		if ((error = libmpq__file_read_with_temporary_buffer(
-		         archive_, mpqFileNumber, buf.data(), mpqFileSize,
-		         tmp_buf_.data(), mpqFileSize, /*transferred=*/nullptr))
-		    != 0) {
+		if (decrypt) {
+			error = libmpq__file_read_with_filename_and_temporary_buffer(
+			    archive_, mpqFileNumber, mpqPath, buf.data(), mpqFileSize,
+			    tmp_buf_.data(), mpqFileSize, /*transferred=*/nullptr);
+		} else {
+			error = libmpq__file_read_with_temporary_buffer(
+			    archive_, mpqFileNumber, buf.data(), mpqFileSize,
+			    tmp_buf_.data(), mpqFileSize, /*transferred=*/nullptr);
+		}
+		if (error != 0) {
 			std::cerr << "Failed to read MPQ file " << mpqPath << ": "
 			          << libmpq__strerror(error) << " " << mpqPath << std::endl;
 			std::exit(1);
@@ -379,7 +385,7 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 	std::vector<const char *> listfileEntries;
 	std::vector<uint8_t> listfileData;
 	if (mpqFiles.empty()) {
-		const size_t listfileSize = archive.ReadFile("(listfile)", listfileData);
+		const size_t listfileSize = archive.ReadFile("(listfile)", listfileData, /*decrypt=*/false);
 		std::replace(listfileData.begin(), listfileData.end(), static_cast<uint8_t>('\r'), static_cast<uint8_t>('\0'));
 		std::replace(listfileData.begin(), listfileData.end(), static_cast<uint8_t>('\n'), static_cast<uint8_t>('\0'));
 		std::string_view listfileStr { reinterpret_cast<char *>(listfileData.data()), listfileSize };
