@@ -86,12 +86,21 @@ add_library(embedded_files OBJECT
 target_include_directories(embedded_files PUBLIC
   ${CMAKE_CURRENT_BINARY_DIR}/generated/)
 
+add_library(extract_spell_icons OBJECT src/extract_spell_icons.cpp)
+target_include_directories(extract_spell_icons PUBLIC src)
+
+target_link_libraries(extract_spell_icons
+  PRIVATE
+  DvlGfx::clx2pixels
+  DvlGfx::pixels2clx)
+
 add_executable(unpack_and_minify_mpq src/unpack_and_minify_mpq.cpp)
 target_link_libraries(unpack_and_minify_mpq PRIVATE
   libmpq
   DvlGfx::cel2clx
   DvlGfx::cl22clx
   DvlGfx::pcx2clx
+  extract_spell_icons
   embedded_files)
 
 add_custom_command(
