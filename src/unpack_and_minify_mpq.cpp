@@ -22,6 +22,7 @@
 #include <pcx2clx.hpp>
 
 #include "embedded_files.h"
+#include "extract_spell_icons.hpp"
 
 namespace {
 
@@ -440,7 +441,21 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 					std::cerr << "Failed CL2->CLX conversion: " << clxError->message << " " << mpqPath << std::endl;
 					std::exit(1);
 				}
-				WriteOutput(outputPath, clxData.data(), clxData.size());
+				if (outputPath.filename() == "spelli2.clx" || outputPath.filename() == "spelicon.clx") {
+					std::vector<uint8_t> iconBackground;
+					std::vector<uint8_t> iconsWithoutBackground;
+					const std::string extractError = devilution_mpq_tools::ExtractSpellIcons(clxData, iconBackground, iconsWithoutBackground);
+					if (!extractError.empty()) {
+						std::cerr << "Failed to extract spell icons from " << mpqPath << ": " << extractError << std::endl;
+						std::exit(1);
+					}
+
+					const std::string stem = outputPath.stem().string();
+					WriteOutput(outputPath.replace_filename(stem + "_bg.clx"), iconBackground.data(), iconBackground.size());
+					WriteOutput(outputPath.replace_filename(stem + "_fg.clx"), iconsWithoutBackground.data(), iconsWithoutBackground.size());
+				} else {
+					WriteOutput(outputPath, clxData.data(), clxData.size());
+				}
 			} else if (std::holds_alternative<PcxToClxCommand>(it->second)) {
 				const PcxToClxCommand &command = std::get<PcxToClxCommand>(it->second);
 				clxData.clear();
