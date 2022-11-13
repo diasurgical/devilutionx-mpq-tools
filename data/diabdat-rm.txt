@@ -246,11 +246,9 @@ monsters/monsters/cnselg.trn
 monsters/monsters/demsklb.trn
 monsters/monsters/demsklw.trn
 monsters/monsters/demskly.trn
-monsters/monsters/de.trn
 monsters/monsters/fmanb.trn
 monsters/monsters/fmanr.trn
 monsters/monsters/fmany.trn
-monsters/monsters/genrl.trn
 monsters/monsters/gsda.trn
 monsters/monsters/guard.trn
 monsters/monsters/nwtc.trn
