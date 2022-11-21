@@ -1,17 +1,17 @@
 cmake_minimum_required(VERSION 3.13)
 
-if(POLICY CMP0092)
-  cmake_policy(SET CMP0092 NEW)
-endif()
-if(POLICY CMP0083)
-  cmake_policy(SET CMP0083 NEW)
-endif()
-if(POLICY CMP0111)
-  cmake_policy(SET CMP0111 NEW)
-endif()
-if(POLICY CMP0126)
-  cmake_policy(SET CMP0126 NEW)
-endif()
+foreach(_policy CMP0083 CMP0092 CMP0111 CMP0126 CMP0135)
+  if(POLICY ${_policy})
+    cmake_policy(SET ${_policy} NEW)
+    set(CMAKE_POLICY_DEFAULT_${_policy} NEW)
+  endif()
+endforeach()
+
+# Projects added via `add_subdirectory` or `FetchContent` may have a lower
+# `cmake_minimum_required` than we set here. Set policies that we require
+# to their new value so that they still apply.
+set(CMAKE_POLICY_DEFAULT_CMP0069 NEW)
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake")
 
