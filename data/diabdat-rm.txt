@@ -180,7 +180,6 @@ monsters/bigfall/bfals1.wav
 monsters/bigfall/bfals2.wav
 monsters/black/blacks1.wav
 monsters/black/blacks2.wav
-monsters/black/blkkntrt.trn
 monsters/darkmage/dmaga1.wav
 monsters/darkmage/dmaga2.wav
 monsters/darkmage/dmagd1.wav
