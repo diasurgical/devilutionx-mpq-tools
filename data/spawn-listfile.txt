@@ -743,6 +743,7 @@ sfx\misc\acids1.wav
 sfx\misc\acids2.wav
 sfx\misc\apoc.wav
 sfx\misc\arrowall.wav
+sfx\misc\bfire.wav
 sfx\misc\blank.wav
 sfx\misc\bldboil.wav
 sfx\misc\blodstar.wav
@@ -873,6 +874,7 @@ sfx\warrior\warior23.wav
 sfx\warrior\warior24.wav
 sfx\warrior\warior25.wav
 sfx\warrior\warior26.wav
+sfx\warrior\warior27.wav
 sfx\warrior\warior28.wav
 sfx\warrior\warior29.wav
 sfx\warrior\warior30.wav
