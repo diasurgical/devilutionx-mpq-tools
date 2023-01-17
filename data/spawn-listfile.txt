@@ -514,6 +514,9 @@ monsters\zombie\zombies.cl2
 monsters\zombie\zombies1.wav
 monsters\zombie\zombies2.wav
 monsters\zombie\zombiew.cl2
+music\sintro.wav
+music\slvla.wav
+music\stowne.wav
 objects\altboy.cel
 objects\angel.cel
 objects\armstand.cel
