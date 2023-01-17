@@ -912,6 +912,7 @@ sfx\warrior\warior61.wav
 sfx\warrior\warior62.wav
 sfx\warrior\warior63.wav
 sfx\warrior\warior64.wav
+sfx\warrior\warior65.wav
 sfx\warrior\warior66.wav
 sfx\warrior\warior67.wav
 sfx\warrior\warior68.wav
