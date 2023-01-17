@@ -961,6 +961,7 @@ ui_art\cursor.pcx
 ui_art\diffbtns.pcx
 ui_art\disclaim.pcx
 ui_art\epopup.pcx
+ui_art\focus.pcx
 ui_art\focus16.pcx
 ui_art\focus42.pcx
 ui_art\font16.bin
