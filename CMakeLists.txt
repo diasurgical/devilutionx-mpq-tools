@@ -45,7 +45,7 @@ add_subdirectory(third_party/dvl_gfx)
 foreach(_path
   diabdat-clx diabdat-listfile diabdat-rm hellfire-clx hellfire-listfile hellfire-rm
   hfmonk-clx hfmonk-listfile hfmonk-rm hfmusic-listfile hfmusic-rm
-  hfvoice-listfile hfvoice-rm spawn-clx spawn-listfile spawn-rm)
+  hfvoice-listfile hfvoice-rm spawn-clx spawn-listfile spawn-rm save-listfile)
   file(STRINGS data/${_path}.txt _lines)
   set(_output_contents "")
   foreach(_line ${_lines})

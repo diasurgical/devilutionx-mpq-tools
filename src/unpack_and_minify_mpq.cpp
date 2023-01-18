@@ -41,6 +41,11 @@ void PrintHelp()
 	std::cerr << kHelp << std::endl;
 }
 
+bool IsSaveFileExtension(const std::filesystem::path &ext)
+{
+	return ext == ".hsv" || ext == ".sv";
+}
+
 std::string SrcName(const std::filesystem::path &mpq)
 {
 	std::string result = mpq.stem().string();
@@ -54,6 +59,11 @@ std::string DestName(const std::string &srcName)
 	if (srcName == "hfmonk" || srcName == "hfmusic" || srcName == "hfvoice")
 		return "hellfire";
 	return srcName;
+}
+
+std::span<const char *const> GetSaveMpqFiles()
+{
+	return { embedded_save_listfile_data, embedded_save_listfile_size };
 }
 
 std::span<const char *const> GetMpqFiles(std::string_view srcName)
@@ -319,13 +329,15 @@ public:
 		}
 	}
 
-	size_t ReadFile(const char *mpqPath, std::vector<uint8_t> &buf, bool decrypt = true)
+	size_t ReadFile(const char *mpqPath, std::vector<uint8_t> &buf, bool decrypt = true, bool optional = false)
 	{
 		uint32_t mpqFileNumber;
 		libmpq__off_t mpqFileSize;
-		int32_t error;
-		if ((error = libmpq__file_number(archive_, mpqPath, &mpqFileNumber)) != 0
-		    || (error = libmpq__file_size_unpacked(archive_, mpqFileNumber, &mpqFileSize)) != 0) {
+		int32_t error = libmpq__file_number(archive_, mpqPath, &mpqFileNumber);
+		if (error == LIBMPQ_ERROR_EXIST && optional)
+			return static_cast<size_t>(-1);
+
+		if (error != 0 || (error = libmpq__file_size_unpacked(archive_, mpqFileNumber, &mpqFileSize)) != 0) {
 			std::cerr << "Failed to read MPQ file " << mpqPath << ": "
 			          << libmpq__strerror(error) << " " << mpqPath << std::endl;
 			std::exit(1);
@@ -374,14 +386,20 @@ void PrintStatus(std::string_view status, size_t i, size_t n)
 
 void Process(const std::filesystem::path &mpq, const std::filesystem::path &outputRoot)
 {
+	const std::filesystem::path srcExt = mpq.extension();
+	const bool isSaveFile = IsSaveFileExtension(srcExt);
+
 	const std::string srcName = SrcName(mpq);
-	const std::string destName = DestName(srcName);
+	const std::string destName = isSaveFile
+	    ? srcName + "_" + srcExt.string().substr(1)
+	    : DestName(srcName);
 	const std::filesystem::path outputDirectory = outputRoot / destName;
 
 	std::clog << "Processing " << mpq << std::endl;
 	MpqArchive archive { mpq };
 
-	std::span<const char *const> mpqFiles = GetMpqFiles(srcName);
+	std::span<const char *const> mpqFiles = isSaveFile ? GetSaveMpqFiles()
+	                                                   : GetMpqFiles(srcName);
 
 	std::vector<const char *> listfileEntries;
 	std::vector<uint8_t> listfileData;
@@ -416,7 +434,11 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 			PrintStatus(std::string("Skipping ") + mpqPath, i, mpqFiles.size());
 			continue;
 		}
-		const size_t mpqFileSize = archive.ReadFile(mpqPath, fileBuf);
+		const size_t mpqFileSize = archive.ReadFile(mpqPath, fileBuf, /*decrypt=*/true, /*optional=*/isSaveFile);
+		if (isSaveFile && mpqFileSize == static_cast<size_t>(-1)) {
+			PrintStatus(std::string("Missing ") + mpqPath, i, mpqFiles.size());
+			continue;
+		}
 
 		std::filesystem::path outputPath = outputDirectory / mpqPathWithForwardSlash;
 
@@ -481,6 +503,7 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 			WriteOutput(outputPath, fileBuf.data(), mpqFileSize);
 		}
 	}
+	PrintStatus("Done", mpqFiles.size(), mpqFiles.size());
 	std::clog << std::endl;
 }
 
@@ -516,8 +539,10 @@ int main(int argc, char *argv[])
 	if (mpqs.empty()) {
 		for (const std::filesystem::directory_entry &entry :
 		    std::filesystem::directory_iterator(std::filesystem::current_path(), std::filesystem::directory_options::skip_permission_denied)) {
-			if (entry.is_regular_file()
-			    && (entry.path().extension() == ".mpq" || entry.path().extension() == ".MPQ")) {
+			if (!entry.is_regular_file())
+				continue;
+			const std::filesystem::path ext = entry.path().extension();
+			if (ext == ".mpq" || ext == ".MPQ" || IsSaveFileExtension(ext)) {
 				mpqs.emplace_back(entry.path());
 			}
 		}
