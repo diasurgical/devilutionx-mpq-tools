@@ -348,7 +348,6 @@ sfx/items/sarcb.wav
 sfx/items/shielfkd.wav
 sfx/items/sttest.wav
 sfx/items/swrdfkd.wav
-sfx/misc/acids2.wav
 sfx/misc/arrowall.wav
 sfx/misc/bldboil.wav
 sfx/misc/bspirit.wav
