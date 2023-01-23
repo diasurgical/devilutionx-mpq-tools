@@ -155,6 +155,7 @@ sfx/items/gold1.wav
 sfx/items/sarca.wav
 sfx/items/sarcb.wav
 sfx/items/sttest.wav
+sfx/misc/blank.wav
 sfx/misc/bspirit.wav
 sfx/misc/dserpatt.wav
 sfx/warrior/wario96c.wav

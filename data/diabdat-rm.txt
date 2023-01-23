@@ -349,6 +349,7 @@ sfx/items/shielfkd.wav
 sfx/items/sttest.wav
 sfx/items/swrdfkd.wav
 sfx/misc/arrowall.wav
+sfx/misc/blank.wav
 sfx/misc/bldboil.wav
 sfx/misc/bspirit.wav
 sfx/misc/cast1.wav
