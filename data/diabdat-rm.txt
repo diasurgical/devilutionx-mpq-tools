@@ -340,7 +340,6 @@ sfx/items/flip1.wav
 sfx/items/flipmag.wav
 sfx/items/flipmag1.wav
 sfx/items/flipsarc.wav
-sfx/items/flipsign.wav
 sfx/items/gold1.wav
 sfx/items/hlmtfkd.wav
 sfx/items/sarca.wav
