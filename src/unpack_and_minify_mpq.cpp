@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iostream>
 #include <limits>
+#include <list>
 #include <optional>
 #include <span>
 #include <string>
@@ -18,6 +19,7 @@
 
 #include <cel2clx.hpp>
 #include <cl22clx.hpp>
+#include <clx_encode.hpp>
 #include <libmpq/mpq.h>
 #include <pcx2clx.hpp>
 
@@ -115,6 +117,7 @@ std::span<const char *const> GetClxCommands(std::string_view srcName)
 
 struct Cl2ToClxCommand {
 	std::vector<uint16_t> widths;
+	std::vector<std::string> combine;
 };
 struct CelToClxCommand {
 	std::vector<uint16_t> widths;
@@ -130,6 +133,7 @@ using ClxCommand = std::variant<Cl2ToClxCommand, CelToClxCommand, PcxToClxComman
 struct ClxCommandAndFiles {
 	ClxCommand command;
 	std::vector<std::string> files;
+	bool combine = false;
 };
 
 template <typename IntT>
@@ -174,6 +178,7 @@ ParseCl2ToClxCommand(std::string_view line)
 {
 	Cl2ToClxCommand command;
 	std::vector<std::string> files;
+	bool combine = false;
 	while (!line.empty()) {
 		const std::string_view arg = line.substr(0, line.find(' '));
 		line.remove_prefix(std::min(arg.size() + 1, line.size()));
@@ -183,6 +188,8 @@ ParseCl2ToClxCommand(std::string_view line)
 			const std::string_view widths = line.substr(0, line.find(' '));
 			line.remove_prefix(std::min(widths.size() + 1, line.size()));
 			command.widths = ParseIntList<uint16_t>(widths);
+		} else if (arg == "--combine") {
+			combine = true;
 		} else if (arg[0] == '-') {
 			std::cerr << "Unknown argument: " << arg << std::endl;
 			std::exit(1);
@@ -190,7 +197,7 @@ ParseCl2ToClxCommand(std::string_view line)
 			files.emplace_back(arg);
 		}
 	}
-	return ClxCommandAndFiles { std::move(command), std::move(files) };
+	return ClxCommandAndFiles { std::move(command), std::move(files), combine };
 }
 
 ClxCommandAndFiles
@@ -214,7 +221,7 @@ ParseCelToClxCommand(std::string_view line)
 			files.emplace_back(arg);
 		}
 	}
-	return ClxCommandAndFiles { std::move(command), std::move(files) };
+	return ClxCommandAndFiles { std::move(command), std::move(files), /*.combine=*/false };
 }
 
 ClxCommandAndFiles
@@ -244,7 +251,7 @@ ParsePcxToClxCommand(std::string_view line)
 			files.emplace_back(arg);
 		}
 	}
-	return ClxCommandAndFiles { std::move(command), std::move(files) };
+	return ClxCommandAndFiles { std::move(command), std::move(files), /*.combine=*/false };
 }
 
 std::optional<ClxCommandAndFiles>
@@ -282,16 +289,51 @@ struct string_hash {
 template <typename T>
 using HeterogenousUnorderedStringMap = std::unordered_map<std::string, T, string_hash, std::equal_to<>>;
 
-HeterogenousUnorderedStringMap<ClxCommand>
+struct ClxCombineAggregator {
+	ClxCommand command;
+	std::vector<std::string> files;
+	bool processed = false;
+};
+
+struct ClxCommands {
+	std::list<ClxCombineAggregator> combine_aggregators;
+	HeterogenousUnorderedStringMap<std::variant<ClxCommand, ClxCombineAggregator *>> per_file;
+};
+
+std::string DefaultCombinedClxFilename(std::string_view firstPath)
+{
+	std::string outputFilename = std::filesystem::path(firstPath).stem().string();
+	size_t numSuffixLength = 0;
+	while (numSuffixLength < outputFilename.size()) {
+		const char c = outputFilename[outputFilename.size() - numSuffixLength - 1];
+		if (c < '0' || c > '9')
+			break;
+		++numSuffixLength;
+	}
+	outputFilename.resize(outputFilename.size() - numSuffixLength);
+	outputFilename.append(".clx");
+	return outputFilename;
+}
+
+ClxCommands
 ParseClxCommands(std::span<const char *const> clxCommands)
 {
-	HeterogenousUnorderedStringMap<ClxCommand> result;
+	ClxCommands result;
 	for (const std::string_view str : clxCommands) {
 		std::optional<ClxCommandAndFiles> parsed = ParseClxCommand(str);
 		if (!parsed.has_value())
 			continue;
+		std::variant<ClxCommand, ClxCombineAggregator *> value;
+		if (parsed->combine) {
+			ClxCombineAggregator &aggregator = result.combine_aggregators.emplace_back();
+			aggregator.command = std::move(parsed->command);
+			aggregator.files = parsed->files;
+			value = &aggregator;
+		} else {
+			value = parsed->command;
+		}
 		for (std::string &file : parsed->files) {
-			if (!result.emplace(std::move(file), parsed->command).second) {
+			if (!result.per_file.emplace(std::move(file), value).second) {
 				std::cerr << "More than 1 CLX conversion command for " << file << std::endl;
 				std::exit(1);
 			}
@@ -329,30 +371,45 @@ public:
 		}
 	}
 
-	size_t ReadFile(const char *mpqPath, std::vector<uint8_t> &buf, bool decrypt = true, bool optional = false)
+	uint32_t getFileNumber(const char *mpqPath, bool optional = false)
 	{
 		uint32_t mpqFileNumber;
-		libmpq__off_t mpqFileSize;
 		int32_t error = libmpq__file_number(archive_, mpqPath, &mpqFileNumber);
 		if (error == LIBMPQ_ERROR_EXIST && optional)
-			return static_cast<size_t>(-1);
-
-		if (error != 0 || (error = libmpq__file_size_unpacked(archive_, mpqFileNumber, &mpqFileSize)) != 0) {
+			return static_cast<uint32_t>(-1);
+		if (error != 0) {
 			std::cerr << "Failed to read MPQ file " << mpqPath << ": "
-			          << libmpq__strerror(error) << " " << mpqPath << std::endl;
+			          << libmpq__strerror(error) << std::endl;
 			std::exit(1);
 		}
-		if (buf.size() < static_cast<size_t>(mpqFileSize)) {
-			buf.resize(static_cast<size_t>(mpqFileSize));
+		return mpqFileNumber;
+	}
+
+	size_t getFileSize(uint32_t mpqFileNumber, const char *mpqPath = "")
+	{
+		int32_t error;
+		libmpq__off_t mpqFileSize;
+		if ((error = libmpq__file_size_unpacked(archive_, mpqFileNumber, &mpqFileSize)) != 0) {
+			std::cerr << "Failed to read MPQ file " << mpqPath << ": "
+			          << libmpq__strerror(error) << std::endl;
+			std::exit(1);
+		}
+		return mpqFileSize;
+	}
+
+	size_t readFile(uint32_t mpqFileNumber, size_t mpqFileSize, const char *mpqPath, uint8_t *buf, bool decrypt)
+	{
+		if (tmp_buf_.size() < mpqFileSize) {
 			tmp_buf_.resize(static_cast<size_t>(mpqFileSize));
 		}
+		int32_t error;
 		if (decrypt) {
 			error = libmpq__file_read_with_filename_and_temporary_buffer(
-			    archive_, mpqFileNumber, mpqPath, buf.data(), mpqFileSize,
+			    archive_, mpqFileNumber, mpqPath, buf, mpqFileSize,
 			    tmp_buf_.data(), mpqFileSize, /*transferred=*/nullptr);
 		} else {
 			error = libmpq__file_read_with_temporary_buffer(
-			    archive_, mpqFileNumber, buf.data(), mpqFileSize,
+			    archive_, mpqFileNumber, buf, mpqFileSize,
 			    tmp_buf_.data(), mpqFileSize, /*transferred=*/nullptr);
 		}
 		if (error != 0) {
@@ -361,6 +418,18 @@ public:
 			std::exit(1);
 		}
 		return static_cast<size_t>(mpqFileSize);
+	}
+
+	size_t readFile(const char *mpqPath, std::vector<uint8_t> &buf, bool decrypt = true, bool optional = false)
+	{
+		const uint32_t mpqFileNumber = getFileNumber(mpqPath, optional);
+		if (optional && mpqFileNumber == static_cast<uint32_t>(-1))
+			return static_cast<size_t>(-1);
+		const size_t mpqFileSize = getFileSize(mpqFileNumber, mpqPath);
+		if (buf.size() < static_cast<size_t>(mpqFileSize)) {
+			buf.resize(static_cast<size_t>(mpqFileSize));
+		}
+		return readFile(mpqFileNumber, mpqFileSize, mpqPath, buf.data(), decrypt);
 	}
 
 	~MpqArchive()
@@ -384,6 +453,56 @@ void PrintStatus(std::string_view status, size_t i, size_t n)
 	std::clog.flush();
 }
 
+void ProcessAggregator(ClxCombineAggregator &aggregator, MpqArchive &archive,
+    const std::filesystem::path &outputDirectory)
+{
+	struct FileInfo {
+		std::string mpqPath;
+		uint32_t mpqFileNumber;
+		size_t size;
+	};
+	FileInfo fileInfos[aggregator.files.size()];
+	size_t totalFilesSize = 0;
+	for (size_t i = 0; i < aggregator.files.size(); ++i) {
+		std::string mpqPath { aggregator.files[i] };
+		std::replace(mpqPath.begin(), mpqPath.end(), '/', '\\');
+		const uint32_t fileNumber = archive.getFileNumber(mpqPath.c_str());
+		const size_t fileSize = archive.getFileSize(fileNumber, mpqPath.c_str());
+		fileInfos[i] = { std::move(mpqPath), fileNumber, fileSize };
+		totalFilesSize += fileSize;
+	}
+	const size_t headerSize = dvl_gfx::ClxSheetHeaderSize(aggregator.files.size());
+	std::unique_ptr<uint8_t[]> data { new uint8_t[headerSize + totalFilesSize] };
+	size_t accumulatedSize = headerSize;
+	for (size_t i = 0; i < aggregator.files.size(); ++i) {
+		dvl_gfx::ClxSheetHeaderSetListOffset(i, accumulatedSize, data.get());
+		archive.readFile(fileInfos[i].mpqFileNumber, fileInfos[i].size,
+		    fileInfos[i].mpqPath.c_str(), &data[accumulatedSize], /*decrypt=*/true);
+		accumulatedSize += fileInfos[i].size;
+	}
+	if (std::holds_alternative<Cl2ToClxCommand>(aggregator.command)) {
+		const Cl2ToClxCommand &command = std::get<Cl2ToClxCommand>(aggregator.command);
+		const std::optional<dvl_gfx::IoError> clxError = dvl_gfx::Cl2ToClx(
+		    data.get(), accumulatedSize, command.widths.data(), command.widths.size());
+		if (clxError.has_value()) {
+			std::cerr << "Failed CL2->CLX combined conversion: " << clxError->message
+			          << " " << aggregator.files[0] << std::endl;
+			std::exit(1);
+		}
+		const std::string outputFilename = DefaultCombinedClxFilename(
+		    aggregator.files[0]);
+		WriteOutput(
+		    outputDirectory
+		        / std::filesystem::path(aggregator.files[0]).parent_path()
+		        / outputFilename,
+		    data.get(), accumulatedSize);
+	} else {
+		std::cerr << "Only CL2 files can be combined error" << std::endl;
+		std::exit(1);
+	}
+	aggregator.processed = true;
+}
+
 void Process(const std::filesystem::path &mpq, const std::filesystem::path &outputRoot)
 {
 	const std::filesystem::path srcExt = mpq.extension();
@@ -404,7 +523,7 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 	std::vector<const char *> listfileEntries;
 	std::vector<uint8_t> listfileData;
 	if (mpqFiles.empty()) {
-		const size_t listfileSize = archive.ReadFile("(listfile)", listfileData, /*decrypt=*/false);
+		const size_t listfileSize = archive.readFile("(listfile)", listfileData, /*decrypt=*/false);
 		std::replace(listfileData.begin(), listfileData.end(), static_cast<uint8_t>('\r'), static_cast<uint8_t>('\0'));
 		std::replace(listfileData.begin(), listfileData.end(), static_cast<uint8_t>('\n'), static_cast<uint8_t>('\0'));
 		std::string_view listfileStr { reinterpret_cast<char *>(listfileData.data()), listfileSize };
@@ -420,21 +539,34 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 	std::span<const char *const> excludedFiles = GetExcludedFiles(srcName);
 	std::unordered_set<std::string_view> excludedFilesMap { excludedFiles.begin(), excludedFiles.end() };
 
-	std::span<const char *const> clxCommands = GetClxCommands(srcName);
-	HeterogenousUnorderedStringMap<ClxCommand> clxCommandsMap = ParseClxCommands(clxCommands);
+	ClxCommands clxCommands = ParseClxCommands(GetClxCommands(srcName));
 
 	std::vector<uint8_t> fileBuf;
 	std::vector<uint8_t> clxData;
 	size_t i = 0;
 	for (const char *const mpqPath : mpqFiles) {
-		++i;
 		std::string mpqPathWithForwardSlash { mpqPath };
 		std::replace(mpqPathWithForwardSlash.begin(), mpqPathWithForwardSlash.end(), '\\', '/');
+
+		const auto clxIt = clxCommands.per_file.find(mpqPathWithForwardSlash);
+		if (clxIt != clxCommands.per_file.end() && std::holds_alternative<ClxCombineAggregator *>(clxIt->second)) {
+			ClxCombineAggregator &aggregator = *std::get<ClxCombineAggregator *>(clxIt->second);
+			if (aggregator.processed)
+				continue;
+			++i;
+			PrintStatus(std::string("Combining ") + mpqPath + " (" + std::to_string(aggregator.files.size()) + ")", i, mpqFiles.size());
+			ProcessAggregator(aggregator, archive, outputDirectory);
+			i += aggregator.files.size() - 1;
+			continue;
+		}
+
+		++i;
+
 		if (excludedFilesMap.contains(mpqPathWithForwardSlash)) {
 			PrintStatus(std::string("Skipping ") + mpqPath, i, mpqFiles.size());
 			continue;
 		}
-		const size_t mpqFileSize = archive.ReadFile(mpqPath, fileBuf, /*decrypt=*/true, /*optional=*/isSaveFile);
+		const size_t mpqFileSize = archive.readFile(mpqPath, fileBuf, /*decrypt=*/true, /*optional=*/isSaveFile);
 		if (isSaveFile && mpqFileSize == static_cast<size_t>(-1)) {
 			PrintStatus(std::string("Missing ") + mpqPath, i, mpqFiles.size());
 			continue;
@@ -442,11 +574,12 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 
 		std::filesystem::path outputPath = outputDirectory / mpqPathWithForwardSlash;
 
-		if (const auto it = clxCommandsMap.find(mpqPathWithForwardSlash); it != clxCommandsMap.end()) {
+		if (clxIt != clxCommands.per_file.end()) {
+			const ClxCommand &clxCommand = std::get<ClxCommand>(clxIt->second);
 			PrintStatus(std::string("Converting ") + mpqPath + " to CLX", i, mpqFiles.size());
 			outputPath.replace_extension(".clx");
-			if (std::holds_alternative<Cl2ToClxCommand>(it->second)) {
-				const Cl2ToClxCommand &command = std::get<Cl2ToClxCommand>(it->second);
+			if (std::holds_alternative<Cl2ToClxCommand>(clxCommand)) {
+				const Cl2ToClxCommand &command = std::get<Cl2ToClxCommand>(clxCommand);
 				const std::optional<dvl_gfx::IoError> clxError = dvl_gfx::Cl2ToClx(
 				    fileBuf.data(), mpqFileSize, command.widths.data(), command.widths.size());
 				if (clxError.has_value()) {
@@ -454,8 +587,8 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 					std::exit(1);
 				}
 				WriteOutput(outputPath, fileBuf.data(), mpqFileSize);
-			} else if (std::holds_alternative<CelToClxCommand>(it->second)) {
-				const CelToClxCommand &command = std::get<CelToClxCommand>(it->second);
+			} else if (std::holds_alternative<CelToClxCommand>(clxCommand)) {
+				const CelToClxCommand &command = std::get<CelToClxCommand>(clxCommand);
 				clxData.clear();
 				const std::optional<dvl_gfx::IoError> clxError = dvl_gfx::CelToClx(
 				    fileBuf.data(), mpqFileSize, command.widths.data(), command.widths.size(), clxData);
@@ -478,8 +611,8 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 				} else {
 					WriteOutput(outputPath, clxData.data(), clxData.size());
 				}
-			} else if (std::holds_alternative<PcxToClxCommand>(it->second)) {
-				const PcxToClxCommand &command = std::get<PcxToClxCommand>(it->second);
+			} else if (std::holds_alternative<PcxToClxCommand>(clxCommand)) {
+				const PcxToClxCommand &command = std::get<PcxToClxCommand>(clxCommand);
 				clxData.clear();
 				std::array<uint8_t, 256 * 3> paletteData;
 				const std::optional<dvl_gfx::IoError> clxError = dvl_gfx::PcxToClx(
