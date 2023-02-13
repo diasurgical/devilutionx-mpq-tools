@@ -97,6 +97,7 @@ target_link_libraries(extract_spell_icons
 add_executable(unpack_and_minify_mpq src/unpack_and_minify_mpq.cpp)
 target_link_libraries(unpack_and_minify_mpq PRIVATE
   libmpq
+  DvlGfx::clx_encode
   DvlGfx::cel2clx
   DvlGfx::cl22clx
   DvlGfx::pcx2clx
