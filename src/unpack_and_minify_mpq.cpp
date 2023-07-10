@@ -482,8 +482,9 @@ void ProcessAggregator(ClxCombineAggregator &aggregator, MpqArchive &archive,
 	}
 	if (std::holds_alternative<Cl2ToClxCommand>(aggregator.command)) {
 		const Cl2ToClxCommand &command = std::get<Cl2ToClxCommand>(aggregator.command);
+		std::vector<uint8_t> converted;
 		const std::optional<dvl_gfx::IoError> clxError = dvl_gfx::Cl2ToClx(
-		    data.get(), accumulatedSize, command.widths.data(), command.widths.size());
+		    data.get(), accumulatedSize, command.widths.data(), command.widths.size(), converted);
 		if (clxError.has_value()) {
 			std::cerr << "Failed CL2->CLX combined conversion: " << clxError->message
 			          << " " << aggregator.files[0] << std::endl;
@@ -495,7 +496,7 @@ void ProcessAggregator(ClxCombineAggregator &aggregator, MpqArchive &archive,
 		    outputDirectory
 		        / std::filesystem::path(aggregator.files[0]).parent_path()
 		        / outputFilename,
-		    data.get(), accumulatedSize);
+		    converted.data(), converted.size());
 	} else {
 		std::cerr << "Only CL2 files can be combined error" << std::endl;
 		std::exit(1);
@@ -580,13 +581,14 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 			outputPath.replace_extension(".clx");
 			if (std::holds_alternative<Cl2ToClxCommand>(clxCommand)) {
 				const Cl2ToClxCommand &command = std::get<Cl2ToClxCommand>(clxCommand);
+				clxData.clear();
 				const std::optional<dvl_gfx::IoError> clxError = dvl_gfx::Cl2ToClx(
-				    fileBuf.data(), mpqFileSize, command.widths.data(), command.widths.size());
+				    fileBuf.data(), mpqFileSize, command.widths.data(), command.widths.size(), clxData);
 				if (clxError.has_value()) {
 					std::cerr << "Failed CL2->CLX conversion: " << clxError->message << " " << mpqPath << std::endl;
 					std::exit(1);
 				}
-				WriteOutput(outputPath, fileBuf.data(), mpqFileSize);
+				WriteOutput(outputPath, clxData.data(), clxData.size());
 			} else if (std::holds_alternative<CelToClxCommand>(clxCommand)) {
 				const CelToClxCommand &command = std::get<CelToClxCommand>(clxCommand);
 				clxData.clear();
