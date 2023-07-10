@@ -95,8 +95,7 @@ pcx2clx --transparent-color 255 ui_art/lrpopup.pcx
 pcx2clx --export-palette ui_art/mainmenu.pcx
 pcx2clx ui_art/prog_bg.pcx
 pcx2clx ui_art/prog_fil.pcx
-pcx2clx --transparent-color 0 ui_art/radio1.pcx
-pcx2clx --transparent-color 0 ui_art/radio3.pcx
+pcx2clx --transparent-color 0 ui_art/r1_gry.pcx
 pcx2clx --num-sprites 4 ui_art/sb_arrow.pcx
 pcx2clx ui_art/sb_bg.pcx
 pcx2clx ui_art/sb_thumb.pcx

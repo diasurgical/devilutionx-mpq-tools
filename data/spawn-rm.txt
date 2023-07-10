@@ -203,9 +203,10 @@ ui_art/ipx_bkg.pcx
 ui_art/listbox.pcx
 ui_art/menu.pcx
 ui_art/mmpopup.pcx
-ui_art/r1_gry.pcx
 ui_art/r3_gry.pcx
+ui_art/radio1.pcx
 ui_art/radio2.pcx
+ui_art/radio3.pcx
 ui_art/radio4.pcx
 ui_art/redlag.pcx
 ui_art/scrlarrw.pcx
