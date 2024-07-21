@@ -94,6 +94,9 @@ target_link_libraries(extract_spell_icons
   DvlGfx::clx2pixels
   DvlGfx::pixels2clx)
 
+add_executable(gen_extract_spell_icons_color_distances_main src/gen_extract_spell_icons_color_distances_main.cpp)
+target_link_libraries(gen_extract_spell_icons_color_distances_main DvlGfx::embedded_palettes)
+
 add_executable(unpack_and_minify_mpq src/unpack_and_minify_mpq.cpp)
 target_link_libraries(unpack_and_minify_mpq PRIVATE
   libmpq

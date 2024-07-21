@@ -618,8 +618,8 @@ void Process(const std::filesystem::path &mpq, const std::filesystem::path &outp
 				clxData.clear();
 				std::array<uint8_t, 256 * 3> paletteData;
 				const std::optional<dvl_gfx::IoError> clxError = dvl_gfx::PcxToClx(
-				    fileBuf.data(), mpqFileSize, command.numFrames, command.transparentColor, clxData,
-				    command.exportPalette ? paletteData.data() : nullptr);
+				    fileBuf.data(), mpqFileSize, command.numFrames, command.transparentColor,
+				    /*cropWidths=*/ {}, clxData, command.exportPalette ? paletteData.data() : nullptr);
 				if (clxError.has_value()) {
 					std::cerr << "Failed CL2->CLX conversion: " << clxError->message << " " << mpqPath << std::endl;
 					std::exit(1);
