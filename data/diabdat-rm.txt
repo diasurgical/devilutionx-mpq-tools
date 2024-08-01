@@ -335,6 +335,7 @@ sfx/animals/warior53.wav
 sfx/items/armrfkd.wav
 sfx/items/barfire.wav
 sfx/items/bfire.wav
+sfx/items/bhit1.wav
 sfx/items/flip.wav
 sfx/items/flip1.wav
 sfx/items/flipmag.wav
@@ -365,6 +366,7 @@ sfx/misc/firimp1.wav
 sfx/misc/flash.wav
 sfx/misc/fmag.wav
 sfx/misc/golumded.wav
+sfx/misc/grdlanch.wav
 sfx/misc/healing.wav
 sfx/misc/hyper.wav
 sfx/misc/invpot.wav
@@ -382,8 +384,14 @@ sfx/misc/walk2.wav
 sfx/misc/walk3.wav
 sfx/misc/walk4.wav
 sfx/misc/wallstrt.wav
+sfx/monsters/izual01.wav
+sfx/monsters/laz02.wav
+sfx/monsters/wlock01.wav
 sfx/rogue/rogue69c.wav
 sfx/rogue/rogue71b.wav
+sfx/towners/bsmith11.wav
+sfx/towners/bsmith54.wav
+sfx/towners/cow8.wav
 sfx/towners/priest00.wav
 sfx/towners/priest01.wav
 sfx/towners/priest02.wav
@@ -392,6 +400,13 @@ sfx/towners/priest04.wav
 sfx/towners/priest05.wav
 sfx/towners/priest06.wav
 sfx/towners/priest07.wav
+sfx/towners/storyt32.wav
+sfx/towners/tavown42.wav
+sfx/warrior/wario95b.wav
+sfx/warrior/wario95c.wav
+sfx/warrior/wario95d.wav
+sfx/warrior/wario95e.wav
+sfx/warrior/wario95f.wav
 sfx/warrior/wario96c.wav
 sfx/warrior/warior96.wav
 sfx/warrior/warior97.wav

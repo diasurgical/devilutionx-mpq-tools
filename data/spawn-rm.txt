@@ -148,6 +148,7 @@ objects/water.cel
 objects/waterjug.cel
 sfx/items/barfire.wav
 sfx/items/bfire.wav
+sfx/items/bhit1.wav
 sfx/items/flip.wav
 sfx/items/flip1.wav
 sfx/items/flipsarc.wav
@@ -158,6 +159,13 @@ sfx/items/sttest.wav
 sfx/misc/blank.wav
 sfx/misc/bspirit.wav
 sfx/misc/dserpatt.wav
+sfx/misc/grdlanch.wav
+sfx/towners/cow8.wav
+sfx/warrior/wario95b.wav
+sfx/warrior/wario95c.wav
+sfx/warrior/wario95d.wav
+sfx/warrior/wario95e.wav
+sfx/warrior/wario95f.wav
 sfx/warrior/wario96c.wav
 towners/priest/priest8.cel
 towners/smith/smithw.cel
