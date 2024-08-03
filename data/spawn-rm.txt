@@ -148,6 +148,7 @@ objects/water.cel
 objects/waterjug.cel
 sfx/items/barfire.wav
 sfx/items/bfire.wav
+sfx/items/bhit.wav
 sfx/items/bhit1.wav
 sfx/items/flip.wav
 sfx/items/flip1.wav
