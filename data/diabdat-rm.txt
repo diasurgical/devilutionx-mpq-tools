@@ -282,7 +282,6 @@ monsters/skelbow/sklbws1.wav
 monsters/skelbow/sklbws2.wav
 monsters/skelsd/blue.trn
 monsters/skelsd/red.trn
-monsters/snake/snakb.trn
 monsters/snake/snakes1.wav
 monsters/snake/snakes2.wav
 monsters/snake/snaky.trn
